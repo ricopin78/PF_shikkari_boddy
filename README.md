@@ -1,10 +1,8 @@
-# <ここにアプリ名を入力>
-
-しっかりBoddy
+# しっかりBoddy
 
 ## サイト概要
 
-予定と TODO を一括管理できる TODO&スケジュール管理アプリ
+予定とTODOを一括管理できる TODO&スケジュール管理アプリ
 
 ### サイトテーマ
 
@@ -17,7 +15,7 @@
 
 ### ターゲットユーザ
 
-ビジネスパーソン全般
+ビジネスパーソン
 
 ### 主な利用シーン
 
@@ -27,7 +25,7 @@
 
 ## チャレンジ要素一覧
 
-<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
+https://docs.google.com/spreadsheets/d/1ONUxfUUcgAyc_p9GfOWON4pzmEBN2EKn1RBEbKFrlO0/edit#gid=0
 
 ## 開発環境
 
