@@ -22,9 +22,9 @@
 ビジネス
 
 ## 設計書
-ER図：https://app.diagrams.net/#G1KXvg_XqMlwR_vTxj15IYtC5EAMcqH2it
-テーブル定義書：https://docs.google.com/spreadsheets/d/1R7kBgp1mp1aMjOrTE9USBjEeSrV09Pr6hD3A9UeT_lo/edit#gid=1373217982
-詳細設計書：https://docs.google.com/spreadsheets/d/1VcBnkATPXeZA87V-v5zcKuk5-cU33Xo7GLnrasU45oU/edit#gid=1031934256
+- ER図：https://app.diagrams.net/#G1KXvg_XqMlwR_vTxj15IYtC5EAMcqH2it
+- テーブル定義書：https://docs.google.com/spreadsheets/d/1R7kBgp1mp1aMjOrTE9USBjEeSrV09Pr6hD3A9UeT_lo/edit#gid=1373217982
+- 詳細設計書：https://docs.google.com/spreadsheets/d/1VcBnkATPXeZA87V-v5zcKuk5-cU33Xo7GLnrasU45oU/edit#gid=1031934256
 
 ## チャレンジ要素一覧
 
