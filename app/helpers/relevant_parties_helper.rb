@@ -1,0 +1,2 @@
+module RelevantPartiesHelper
+end
