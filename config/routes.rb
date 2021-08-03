@@ -1,35 +1,13 @@
 Rails.application.routes.draw do
-  get 'comments/create'
-  get 'comments/update'
-  get 'comments/destroy'
-  get 'okeys/create'
-  get 'okeys/destroy'
-  get 'relevant_parties/create'
-  get 'relevant_parties/update'
-  get 'relevant_parties/destroy'
-  get 'attachments/create'
-  get 'attachments/destroy'
-  get 'event_todos/create'
-  get 'event_todos/update'
-  get 'event_todos/destroy'
-  get 'events/index'
-  get 'events/show'
-  get 'events/new'
-  get 'events/create'
-  get 'events/edit'
-  get 'events/update'
-  get 'events/destroy'
-  get 'todos/index'
-  get 'todos/show'
-  get 'todos/create'
-  get 'todos/edit'
-  get 'todos/update'
-  get 'todos/destroy'
-  get 'titles/new'
-  get 'titles/create'
-  get 'titles/update'
-  get 'titles/destroy'
-  get 'users/show'
-  get 'homes/top'
+  resources :comments, only:[:create,:update,:destroy]
+  resources :okeys, only:[:create,:destroy]
+  resources :relevant_parties, only:[:create,:update,:destroy]
+  resources :attachments, only:[:create,:destroy]
+  resources :event_todos, only:[:create,:update,:destroy]
+  resources :events
+  resources :comments, only:[:index,:create,:edit,:update,:show,:destroy]
+  resources :titles, only:[:new,:create,:update,:destroy]
+  resources :users, only:[:show]
+  root to: 'home#1top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

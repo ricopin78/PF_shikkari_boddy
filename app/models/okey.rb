@@ -1,0 +1,2 @@
+class Okey < ApplicationRecord
+end

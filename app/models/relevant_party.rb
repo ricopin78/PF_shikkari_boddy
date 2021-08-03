@@ -1,0 +1,2 @@
+class RelevantParty < ApplicationRecord
+end
