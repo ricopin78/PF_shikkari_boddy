@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :comments, only:[:create,:update,:destroy]
   resources :okeys, only:[:create,:destroy]
   resources :relevant_parties, only:[:create,:update,:destroy]
