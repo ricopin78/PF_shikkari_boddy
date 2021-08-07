@@ -1,2 +1,22 @@
 <h1>Todos#show</h1>
 <p>Find me in app/views/todos/show.html.erb</p>
+
+  <table class="table table-btodoless">
+    <tr>
+      <th>タイトル</th>
+      <td><%= @todo.title %></td>
+    </tr>
+    <tr>
+      <th>締め切り日時</th>
+      <td><%= @todo.deadline.strftime('%Y/%m/%d') %></tdH>
+    </tr>
+    <tr>
+      <th>かかる時間</th>
+      <td> <%= @todo.duration.div(60) %> 時間 <%= @todo.duration % 60 %> 分 </td>
+    </tr>
+    <tr>
+      <th>内容</th>
+      <td><%= @todo.body %></td>
+    </tr>
+  </table>
+  <%= link_to "TODOを削除する", todo_path(@todo), method: :delete %>
