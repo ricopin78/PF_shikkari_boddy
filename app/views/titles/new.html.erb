@@ -1,2 +1,11 @@
 <h1>Titles#new</h1>
 <p>Find me in app/views/titles/new.html.erb</p>
+
+<%= form_with model: @title, local: true do |f| %>
+
+<%= f.label :"部署" %>
+<%= f.text_field :department, placefolder: "◯◯部" %>
+
+<%= f.label :"役職" %>
+<%= f.text_field :positio, :size => "50"  %>
+<%= f.submit "変更", class:"btn btn-success" %>
