@@ -51,6 +51,7 @@ group :development do
   gem 'rubocop-airbnb'
   gem 'rspec-rails', '~> 3.6'
   gem 'spring-commands-rspec'
+  gem 'factory_bot_rails'
 end
 
 group :test do
@@ -67,3 +68,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dropzonejs-rails', '~> 0.7.3'
 
 gem 'devise'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
