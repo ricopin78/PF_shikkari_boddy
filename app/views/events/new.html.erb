@@ -1,2 +1,35 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-9 col-xl-8 mx-auto">
+      <h2 class="mb-4">予定登録</h2>
+      <%= form_with model: @event, url: events_path, local: true, class: "mb-3 pl-md-3" do |f| %>
+        <div class="form-group row">
+          <%= f.label "タイトル", class: "col-md-4 col-form-label" %>
+          <div class="col-sm-6 col-md-4">
+            <%= f.text_field :title, autofocus: true, class:"form-control" %>
+          </div>
+        </div>
+        <div>
+          <%= f.label "開始日時", class: "col-md-4 col-form-label" %>
+          <div class="col-sm-6 col-md-4">
+            <%= f.datetime_select :start_time, autofocus: true, class:"form-control" %>
+          </div>
+        </div>
+        <div>
+          <%= f.label "終了日時", class: "col-md-4 col-form-label" %>
+          <div class="col-sm-6 col-md-4">
+            <%= f.datetime_select :finish_time, autofocus: true, class:"form-control" %>
+          </div>
+        </div>
+        <div>
+          <%= f.label "概要", class: "col-md-4 col-form-label" %>
+          <div class="col-sm-6 col-md-4">
+            <%= f.text_area :overview, autofocus: true,  placeholder: "(名) 太郎", class:"form-control" %>
+          </div>
+        </div>
+          <%= f.submit "予定を登録する", class: "col-md-4 col-form-label" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
