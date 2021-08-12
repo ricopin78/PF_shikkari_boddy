@@ -5,7 +5,7 @@ class TitlesController < ApplicationController
   end
 
   def create
-    @title = Title.new
+    @title = Title.new(title_params)
     @title.user_id = current_user.id
     @title.save
     redirect_to user_path(current_user)
