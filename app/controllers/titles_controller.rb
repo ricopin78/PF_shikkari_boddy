@@ -10,6 +10,10 @@ class TitlesController < ApplicationController
     redirect_to user_path
   end
 
+  def edit
+    @title = Title.find(params[id])
+  end
+
   def update
     @title = Title.find(params[id])
     @title.update(title_params)

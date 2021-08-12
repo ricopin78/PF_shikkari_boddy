@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :todos, only:[:index,:show,:create,:edit,:update,:destroy]
   resources :events
   resources :comments, only:[:index,:create,:edit,:update,:show,:destroy]
-  resources :titles, only:[:new,:create,:update,:destroy]
+  resources :titles, only:[:new,:create,:edit,:update,:destroy]
   resources :users, only:[:show]
   root to: 'homes#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
