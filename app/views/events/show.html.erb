@@ -15,5 +15,18 @@
   <strong>内容</strong>
   <%= @event.overview %>
 </p>
+
+<h3>OK件数: <%= @event.okeys.count %></h3>
+<% if current_user.already_okeyed?(@event) %>
+  <%= button_to 'OK！を取り消す', event_okey_path(@event), method: :delete %>
+<% else %>
+  <%= button_to 'OK！', event_okeys_path(@event) %>
+<% end %>
+<h2>OKしたユーザー</h2>
+<% @event.okeyed_users.each do |user| %>
+  <li><%= user.full_name %></li>
+<% end %>
+
+<%= link_to "ホームへ戻る", events_path %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
