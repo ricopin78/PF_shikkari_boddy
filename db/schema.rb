@@ -21,11 +21,13 @@ ActiveRecord::Schema.define(version: 2021_08_04_064719) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "event_id", null: false
+    t.integer "user_id"
+    t.integer "event_id"
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "event_todos", force: :cascade do |t|
@@ -40,13 +42,14 @@ ActiveRecord::Schema.define(version: 2021_08_04_064719) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "start_time", null: false
     t.datetime "finish_time", null: false
     t.string "title", null: false
     t.text "overview"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "okeys", force: :cascade do |t|

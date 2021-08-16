@@ -1,2 +1,19 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+
+<h2>予定の編集</h2>
+<%= form_with model: @event, local: true do |f| %>
+
+<%= f.label :title, "タイトル" %>
+<%= f.text_field :title %>
+
+<%= f.label :start_time, "開始日時" %>
+<%= f.datetime_field :start_time %>
+
+<%= f.label :finish_time, "終了日時" %>
+<%= f.text_field :finish_time %>
+
+<%= f.label :overview, "概要" %>
+<%= f.text_area :overview %>
+
+<%= f.submit "予定を編集する", class: "btn btn-success" %>
+
+<% end %>

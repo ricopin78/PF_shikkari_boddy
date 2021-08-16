@@ -27,6 +27,21 @@
   <li><%= user.full_name %></li>
 <% end %>
 
+<h2>コメント一覧</h2>
+<% @comments.each do |c| %>
+  <div>
+    <a href="/users/<%= c.user.id %>"><%= c.user.full_name %></a>
+    <%= c.body %>
+    <hr>
+  </div>
+<% end %>
+
+<%= form_with model: @comment, url: event_comments_path(@event), local: true do |f| %>
+  <%= f.text_field :body %>
+  <br>
+  <%= f.submit 'コメントする' %>
+<% end %>
+
 <%= link_to "ホームへ戻る", events_path %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

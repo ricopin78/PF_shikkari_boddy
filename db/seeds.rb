@@ -24,7 +24,8 @@
     body: 'テキストテキストテキストテキスト',
     deadline: '2021-07-08 11:11:11',
     duration: '30',
-    completed: 'true'
+    completed: 'true',
+    priority: '低'
   )
   end
 
