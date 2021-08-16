@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    byebug
+    @comment.event_id = params[:event_id]
     if @comment.save
       redirect_back(fallback_location: root_path)
     else
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :user_id, :event_id)
+    params.require(:comment).permit(:body, :event_id, :user_id)
   end
 
   def event_params

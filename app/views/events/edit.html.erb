@@ -6,10 +6,10 @@
 <%= f.text_field :title %>
 
 <%= f.label :start_time, "開始日時" %>
-<%= f.datetime_field :start_time %>
+<%= f.datetime_field :start_time , autofocus: true %>
 
 <%= f.label :finish_time, "終了日時" %>
-<%= f.text_field :finish_time %>
+<%= f.datetime_field :finish_time , autofocus: true %>
 
 <%= f.label :overview, "概要" %>
 <%= f.text_area :overview %>
