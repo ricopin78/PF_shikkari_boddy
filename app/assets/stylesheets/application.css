@@ -15,3 +15,13 @@
  *= require_tree .
  *= require_self
  */
+
+.dropzone {
+  border: 2px dashed #b4bcc2;
+}
+
+.dz-message {
+  font-size: 16px;
+  text-align: center;
+  margin: 0
+}
