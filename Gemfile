@@ -72,7 +72,8 @@ group :production do
 end
 
 gem 'simple_calendar', '~> 2.0'
-gem 'carrierwave', '~> 2.0'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
 gem 'dropzonejs-rails', '~> 0.7.3'
 gem 'devise'
 gem 'bootstrap', '~> 4.5'

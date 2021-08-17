@@ -24,13 +24,19 @@
         </div>
         <div class="form-group">
           <div class="field">
+            <%= f.label "プロフィール写真", class: "text-info" %><br />
+            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="field">
             <%= f.label :email, class: "text-info" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </div>
         </div>
         <div class="form-group">
           <div class="field">
-            <%= f.label :addres, "お勤め先企業名", class: "text-info" %>
+            <%= f.label :company, "お勤め先企業名", class: "text-info" %>
             <%= f.text_field :company, autofocus: true, placeholder: "〇〇株式会社", class:"form-control" %>
           </div>
         </div>
