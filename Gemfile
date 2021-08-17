@@ -65,9 +65,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'dropzonejs-rails', '~> 0.7.3'
-
-gem 'devise'
 
 gem 'dotenv-rails'
 group :production do
@@ -75,5 +72,8 @@ group :production do
 end
 
 gem 'simple_calendar', '~> 2.0'
-
 gem 'carrierwave', '~> 2.0'
+gem 'dropzonejs-rails', '~> 0.7.3'
+gem 'devise'
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
