@@ -1,10 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-10 col-lg-9 col-xl-8 mx-auto">
-      <h2 class="mb-4">新規会員登録</h2>
+  <div id="login-row" class="row justify-content-center align-items-center">
+    <div id="login-column" class="col-md-6">
+      <h3 class="text-center text-info">新規会員登録</h3>
+      <div class="form-group">
       <%= form_with model: @user, url: user_registration_path, local: true, class: "mb-3 pl-md-3" do |f| %>
-        <div class="form-group row">
-          <%= f.label "名前", class: "col-md-4 col-form-label" %>
+      　<div class="form-group row">
+          <%= f.label "名前", class: "col-md-4 col-form-label text-info" %>
           <div class="col-sm-6 col-md-4">
             <%= f.text_field :last_name, autofocus: true,  placeholder: "(姓) 室華梨", class:"form-control" %>
           </div>
@@ -13,7 +14,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <%= f.label :last_name_kana, "フリガナ", class: "col-md-4 col-form-label" %>
+          <%= f.label :last_name_kana, "フリガナ", class: "col-md-4 col-form-label text-info" %>
           <div class="col-sm-6 col-md-4">
             <%= f.text_field :last_name_kana, autofocus: true,  placeholder: "(セイ) シッカリ", class:"form-control" %>
           </div>
@@ -21,38 +22,38 @@
             <%= f.text_field :first_name_kana, autofocus: true,  placeholder: "(メイ)アイコ", class:"form-control" %>
           </div>
         </div>
-        <div class="form-group row">
-          <%= f.label :email, "メールアドレス", class: "col-md-4 col-form-label" %>
-          <div class="col-sm-6 col-md-4">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class:"form-control" %>
+        <div class="form-group">
+          <div class="field">
+            <%= f.label :email, class: "text-info" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </div>
         </div>
-        <div class="form-group row">
-          <%= f.label :addres, "お勤めの会社名", class: "col-md-4 col-form-label" %>
-          <div class="col-md-8">
+        <div class="form-group">
+          <div class="field">
+            <%= f.label :addres, "お勤め先企業名", class: "text-info" %>
             <%= f.text_field :company, autofocus: true, placeholder: "〇〇株式会社", class:"form-control" %>
           </div>
         </div>
-        <div class="form-group row">
-          <%= f.label :password, "パスワード（8文字以上）", class: "col-md-4 col-form-label" %>
-          <div class="col-sm-6 col-md-4">
-            <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+        <div class="form-group">
+          <div class="field">
+            <%= f.label :password ,class: "text-info" %><br />
+            <%= f.password_field :password, autofocus: true, autocomplete: "current-password", class: "form-control" %>
           </div>
         </div>
-        <div class="form-group row">
-          <%= f.label :password_confirmation, "パスワード（確認用）", class: "col-md-4 col-form-label" %>
-          <div class="col-sm-6 col-md-4">
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+        <div class="form-group">
+          <div class="field">
+            <%= f.label :password_confirmation ,class: "text-info" %><br />
+            <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "current-password", class: "form-control" %>
+          </div>
+          <div class="text-right">
+            <%= link_to "ログイン", new_user_session_path, class: "text_info" %>
           </div>
         </div>
-        <div class="form-group row">
-          <div class="col-7 text-right">
-            <%= f.submit "新規登録", class:"btn btn-success" %>
-          </div>
+        <div class="form_group">
+          <%= f.submit "登録する", class: "btn btn-info btn-md" %>
         </div>
-      <% end %>
-      <h4 class="mb-3">既に登録済みの方</h4>
-      <p class="pl-3"><%= link_to "こちら", new_user_session_path %> からログインしてください。</p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
