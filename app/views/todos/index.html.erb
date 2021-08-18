@@ -5,15 +5,15 @@
     </div>
     <div class="col-8">
       <h2>TODOリスト</h2>
-      <% @todos.each do |todo| %>
+      <%= @todos.each do |todo| %>
 
       <%= todo.deadline.strftime('%Y/%m/%d') %>
       <%= todo.title %>
 
-<%= todo.deadline.strftime('%Y/%m/%d') %>
-<%= todo.title %>
+      <%= todo.deadline.strftime('%Y/%m/%d') %>
+      <%= todo.title %>
 
-<% end %>
+      <% end %>
     </div>
   </div>
 </div>

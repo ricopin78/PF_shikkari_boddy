@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_08_04_064719) do
 
-  create_table "attachments", force: :cascade do |t|
-    t.integer "event_id", null: false
-    t.string "file_name", null: false
-    t.string "file", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"

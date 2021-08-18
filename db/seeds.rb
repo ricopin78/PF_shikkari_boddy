@@ -14,7 +14,7 @@
       last_name_kana: "テスト",
       first_name_kana: "タロウ",
       company: "シッカリ",
-      password: 'xxxxxxxxxxxxxxxxxxx'
+      password: 'password'
     )
   end
 
@@ -23,9 +23,9 @@
     title: 'タイトル',
     body: 'テキストテキストテキストテキスト',
     deadline: '2021-07-08 11:11:11',
-    duration: '30',
+    duration: 30,
     completed: 'true',
-    priority: '低'
+    priority: 0
   )
   end
 
