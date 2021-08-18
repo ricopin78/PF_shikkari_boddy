@@ -1,28 +1,19 @@
+<div class="container">
+  <div class="d-flex flex-row">
+    <div class="col-4">
+      <%= render 'todos/new', todo: @todo %>
+    </div>
+    <div class="col-8">
+      <h2>TODOリスト</h2>
+      <% @todos.each do |todo| %>
 
-<h2>新しいTODO</h2>
-<%= form_with model: @todo, local: true do |f| %>
-
-<%= f.label :title, "タイトル" %>
-<%= f.text_field :title %>
-
-<%= f.label :deadline, "締め切り日時" %>
-<%= f.datetime_field :deadline %>
-
-<%= f.label :duration, "かかる時間" %>
-<%= f.text_field :duration %>分
-
-<%= f.label :body, "内容" %>
-<%= f.text_area :body %>
-
-<%= f.submit "TODOを登録", class: "btn btn-success" %>
-
-<% end %>
-
-<h2>TODOリスト</h2>
-<% @todos.each do |todo| %>
+      <%= todo.deadline.strftime('%Y/%m/%d') %>
+      <%= todo.title %>
 
 <%= todo.deadline.strftime('%Y/%m/%d') %>
 <%= todo.title %>
 
 <% end %>
-
+    </div>
+  </div>
+</div>
