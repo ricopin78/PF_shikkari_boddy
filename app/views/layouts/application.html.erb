@@ -21,7 +21,7 @@
             <% if user_signed_in? %>
               <li class= "nav-link text-light"><%= current_user.full_name %>さん、おつかれ様です！</li>
               <li><%= link_to "マイページ", user_path(current_user), class: "nav-link text-light" %></li>
-              <li><%= link_to "TODO", todos_path, class: "nav-link text-light" %></li>
+              <li><%= link_to "TODO", user_todos_path(current_user), class: "nav-link text-light" %></li>
               <li><%= link_to "カレンダー", events_path, class: "nav-link text-light" %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-light" %></li>
             <% else %>
