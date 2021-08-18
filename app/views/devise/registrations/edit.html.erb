@@ -25,7 +25,7 @@
         <div class="form-group">
           <div class="field">
              <%= f.label "プロフィール写真", class: "text-info" %><br />
-            <%= attachment_image_tag @user, :profile_image, :fill, size: "220x220", fallback: "test.png", class: "text-align-center" %>
+            <%= attachment_image_tag @user, :profile_image, size: "220x220", fallback: "test.png", class: "text-align-center" %>
             <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
           </div>
         </div>
