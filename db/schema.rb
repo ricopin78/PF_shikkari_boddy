@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_04_064719) do
+ActiveRecord::Schema.define(version: 2021_08_03_152033) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2021_08_04_064719) do
     t.text "body"
     t.datetime "deadline", null: false
     t.integer "duration"
-    t.integer "priority", null: false
+    t.integer "rank", default: 0, null: false
     t.boolean "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

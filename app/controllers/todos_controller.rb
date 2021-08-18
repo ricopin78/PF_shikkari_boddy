@@ -2,6 +2,7 @@ class TodosController < ApplicationController
 
   def index
     @todos = current_user.todos
+    @todo = Todo.new
   end
 
   def show
@@ -34,7 +35,7 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-     params.require(:todo).permit(:title, :body, :user_id, :deadline, :duration, :completed)
+     params.require(:todo).permit(:title, :body, :user_id, :deadline, :duration, :completed, :priority)
   end
 
 end

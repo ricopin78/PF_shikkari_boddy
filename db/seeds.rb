@@ -25,7 +25,7 @@
     deadline: '2021-07-08 11:11:11',
     duration: 30,
     completed: 'true',
-    priority: 0
+    rank: 0
   )
   end
 
