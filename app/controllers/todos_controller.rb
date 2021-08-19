@@ -1,8 +1,12 @@
 class TodosController < ApplicationController
 
   def index
-    @todos = current_user.todos
     @todo = Todo.new
+    @user = current_user
+    @todo0 = Todo.where(user_id: @user.id, rank: "重要×緊急")
+    @todo1 = Todo.where(user_id: @user.id, rank: "重要×緊急でない")
+    @todo2 = Todo.where(user_id: @user.id, rank: "重要でない×緊急")
+    @todo3 = Todo.where(user_id: @user.id, rank: "重要でない×緊急でない")
   end
 
   def show

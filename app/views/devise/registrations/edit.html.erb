@@ -1,66 +1,55 @@
 <div class="container">
-  <div id="login-row" class="row justify-content-center align-items-center">
-    <div id="login-column" class="col-md-6">
-      <h3 class="text-center text-info">マイページ編集</h3></h3>
-      <div class="form-group">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+      <h3 class="text-center text-info my-5">マイページ編集</h3></h3>
       <%= form_with model: @user, url: user_registration_path, local: true, class: "mb-3 pl-md-3" do |f| %>
-      　<div class="form-group row">
-          <%= f.label "名前", class: "col-md-4 col-form-label text-info" %>
-          <div class="col-sm-6 col-md-4">
-            <%= f.text_field :last_name, autofocus: true, class:"form-control" %>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <%= f.text_field :first_name, autofocus: true, class:"form-control" %>
-          </div>
+      <div class="form-group row">
+        <%= f.label "名前", class: "col-md-4 col-form-label text-info" %>
+        <div class="col-sm-6 col-md-4">
+          <%= f.text_field :last_name, autofocus: true, class:"form-control" %>
         </div>
-        <div class="form-group row">
-          <%= f.label :last_name_kana, "フリガナ", class: "col-md-4 col-form-label text-info" %>
-          <div class="col-sm-6 col-md-4">
-            <%= f.text_field :last_name_kana, autofocus: true, class:"form-control" %>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <%= f.text_field :first_name_kana, autofocus: true, class:"form-control" %>
-          </div>
+        <div class="col-sm-6 col-md-4">
+          <%= f.text_field :first_name, autofocus: true, class:"form-control" %>
         </div>
-        <div class="form-group">
-          <div class="field">
-             <%= f.label "プロフィール写真", class: "text-info" %><br />
-            <%= attachment_image_tag @user, :profile_image, size: "220x220", fallback: "test.png", class: "text-align-center" %>
-            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="field">
-            <%= f.label :email, class: "text-info" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="field">
-            <%= f.label :addres, "お勤め先企業名", class: "text-info" %>
-            <%= f.text_field :company, autofocus: true, class:"form-control" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="field">
-            <%= f.label :password ,class: "text-info" %><br />
-            <%= f.password_field :password, autofocus: true, autocomplete: "current-password", class: "form-control" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="field">
-            <%= f.label :password_confirmation ,class: "text-info" %><br />
-            <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "current-password", class: "form-control" %>
-          </div>
-          <div class="text-right">
-            <%= link_to "役職を新しく登録する", new_user_title_path(current_user), class: "text_info" %>
-          </div>
-        </div>
-        <div class="form_group">
-          <%= f.submit "編集内容を保存する", class: "btn btn-info btn-md" %>
-        </div>
-        <% end %>
       </div>
+      <div class="form-group row my-4">
+        <%= f.label :last_name_kana, "フリガナ", class: "col-md-4 col-form-label text-info" %>
+        <div class="col-sm-6 col-md-4">
+          <%= f.text_field :last_name_kana, autofocus: true, class:"form-control" %>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <%= f.text_field :first_name_kana, autofocus: true, class:"form-control" %>
+        </div>
+      </div>
+      <div class="form-group my-4">
+        <%= f.label "プロフィール写真", class: "text-info" %><br />
+        <%= attachment_image_tag @user, :profile_image, size: "220x220", fallback: "test.png", class: "mb-4" %>
+        <%= f.attachment_field :profile_image,class: 'dropzone user-profile-image', id: 'upload-dropzone' %>
+      </div>
+      <div class="form-group my-4">
+        <%= f.label :email, class: "text-info" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+      <div class="form-group my-4">
+        <%= f.label :addres, "お勤め先企業名", class: "text-info" %>
+        <%= f.text_field :company, autofocus: true, class:"form-control" %>
+      </div>
+      <div class="form-group my-4">
+        <%= f.label :password ,class: "text-info" %><br />
+        <%= f.password_field :password, autofocus: true, autocomplete: "current-password", class: "form-control" %>
+      </div>
+      <div class="form-group my-4">
+        <%= f.label :password_confirmation ,class: "text-info" %><br />
+        <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "current-password", class: "form-control" %>
+        <div class="text-right">
+          <%= link_to "役職を新しく登録する", new_user_title_path(current_user), class: "text_info" %>
+        </div>
+      </div>
+      <div class="form_group">
+        <%= f.submit "編集内容を保存する", class: "btn btn-info btn-md" %>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>
+

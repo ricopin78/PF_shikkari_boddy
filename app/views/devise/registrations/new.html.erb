@@ -23,34 +23,24 @@
           </div>
         </div>
         <div class="form-group my-4">
-          <div class="field">
-            <%= f.label "プロフィール写真", class: "text-info" %><br />
-            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-          </div>
+          <%= f.label "プロフィール写真", class: "text-info" %><br />
+          <%= f.attachment_field :profile_image, class: 'dropzone user-profile-image', id: 'upload-dropzone' %>
         </div>
         <div class="form-group my-4">
-          <div class="field">
-            <%= f.label :email, class: "text-info" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-          </div>
+          <%= f.label :email, class: "text-info" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
         <div class="form-group my-4">
-          <div class="field">
-            <%= f.label :company, "お勤め先企業名", class: "text-info" %>
-            <%= f.text_field :company, autofocus: true, placeholder: "〇〇株式会社", class:"form-control" %>
-          </div>
+          <%= f.label :company, "お勤め先企業名", class: "text-info" %>
+          <%= f.text_field :company, autofocus: true, placeholder: "〇〇株式会社", class:"form-control" %>
         </div>
         <div class="form-group my-4">
-          <div class="field">
-            <%= f.label :password ,class: "text-info" %><br />
-            <%= f.password_field :password, autofocus: true, autocomplete: "current-password", class: "form-control" %>
-          </div>
+          <%= f.label :password ,class: "text-info" %><br />
+          <%= f.password_field :password, autofocus: true, autocomplete: "current-password", class: "form-control" %>
         </div>
         <div class="form-group my-4">
-          <div class="field">
-            <%= f.label :password_confirmation ,class: "text-info" %><br />
-            <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "current-password", class: "form-control" %>
-          </div>
+          <%= f.label :password_confirmation ,class: "text-info" %><br />
+          <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "current-password", class: "form-control" %>
         </div>
         <div class="form-group row my-4">
           <div class="col-lg-6 col-md-4">

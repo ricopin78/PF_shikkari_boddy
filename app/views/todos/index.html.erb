@@ -4,16 +4,61 @@
       <%= render 'todos/new', todo: @todo %>
     </div>
     <div class="col-md-9">
-      <h2>TODOリスト</h2>
-      <% @todos.each do |todo| %>
-        <div class="todo-card">
-          <div class="todo-title">
-          <%= todo.title %>
-          </div>
-          <div class="todo-deadline">
-            <%= todo.deadline.strftime('%Y/%m/%d') %>
+      <h2 class="text-info mt-3 text-center my-5">TODOリスト</h2>
+      <div class ="todo-container">
+        <!--重要×緊急-->
+        <div class ="todo-list">
+          <h5 class ="todo-list-label label0">重要×緊急</h5>
+          <% @todo0.each do |t| %>
+          <div class="todo-card">
+            <div class="todo-title">
+              <%= t.title %>
+            </div>
+            <div class="todo-deadline">
+              <%= t.deadline.strftime('%m/%d') %>
+            </div>
           </div>
         <div>
+        <% end %>
+        <!--重要×緊急でない-->
+        <div class ="todo-list">
+          <% @todo1.each do |t| %>
+          <div class="todo-card">
+            <div class="todo-title">
+              <%= t.title %>
+            </div>
+            <div class="todo-deadline">
+              <%= t.deadline.strftime('%m/%d') %>
+            </div>
+          </div>
+        <div>
+        <% end %>
+        <!--重要でない×緊急-->
+        <div class ="todo-list">
+          <% @todo2.each do |t| %>
+          <div class="todo-card">
+            <div class="todo-title">
+              <%= t.title %>
+            </div>
+            <div class="todo-deadline">
+              <%= t.deadline.strftime('%m/%d') %>
+            </div>
+          </div>
+        <div>
+        <% end %>
+        <!--重要でない×緊急でない-->
+        <div class ="todo-list">
+          <% @todo3.each do |t| %>
+          <div class="todo-card">
+            <div class="todo-title">
+              <%= t.title %>
+            </div>
+            <div class="todo-deadline">
+              <%= t.deadline.strftime('%m/%d') %>
+            </div>
+          </div>
+        <div>
+      </div>
       <% end %>
     </div>
   </div>
