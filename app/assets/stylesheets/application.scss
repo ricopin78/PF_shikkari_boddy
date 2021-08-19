@@ -21,3 +21,11 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+h4 {
+  padding: 1rem 2rem;
+  color: white;
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#87ceeb));
+  background-image: -webkit-linear-gradient(left, #17a2b8 0%, #87ceeb 100%);
+  background-image: linear-gradient(to right, #17a2b8 0%, #87ceeb 100%);
+}
