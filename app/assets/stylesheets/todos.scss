@@ -1,3 +1,29 @@
 // Place all the styles related to the todos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// タスクアイテム
+.todo-card {
+  .item{
+    width: 80%;
+    height: 44px;
+    margin: 5px auto;
+    padding: 1%;
+    border-radius: 6px;
+    background-color: white;
+    border: solid 1px silver;
+    box-shadow: 1px 1px 1px 1px rgba(155,155,155,0.2);
+
+
+    .todo_title {
+      width: 100%;
+      color: #545454;
+      line-height: 1.0;
+      font-size: 0.75rem;
+      padding: 2px 5px 0px 5px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}

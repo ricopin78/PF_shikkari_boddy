@@ -13,9 +13,11 @@
  *= require dropzone/basic
  *= require dropzone/dropzone
  *= require simple_calendar
- *= require_tree .
  *= require_self
+ *= require_tree
+
  */
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+

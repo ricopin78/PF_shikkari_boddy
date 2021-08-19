@@ -1,18 +1,19 @@
 <div class="container">
   <div class="d-flex flex-row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= render 'todos/new', todo: @todo %>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
       <h2>TODOリスト</h2>
-      <%= @todos.each do |todo| %>
-
-      <%= todo.deadline.strftime('%Y/%m/%d') %>
-      <%= todo.title %>
-
-      <%= todo.deadline.strftime('%Y/%m/%d') %>
-      <%= todo.title %>
-
+      <% @todos.each do |todo| %>
+        <div class="todo-card">
+          <div class="todo-title">
+          <%= todo.title %>
+          </div>
+          <div class="todo-deadline">
+            <%= todo.deadline.strftime('%Y/%m/%d') %>
+          </div>
+        <div>
       <% end %>
     </div>
   </div>

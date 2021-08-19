@@ -1,44 +1,47 @@
 <div class="container">
   <div class="row justify-content-center align-items-center">
-      <h3 class="text-info mt-3">マイページ</h3>
-        <div class="col-md-3 col-lg-3 " align="center">
-          <%= attachment_image_tag @user, :profile_image, size: "220x220", fallback: "test.png" %>
-          </div>
-          <div class=" col-md-9 col-lg-9 ">
-            <table class="table table-user-information">
-              <tbody>
-                <tr>
-                  <td class="col-md-4 col-form-label text-info">名前</td>
-                  <td><%= @user.full_name %> [<%= @user.full_name_kana %>]</td>
-                </tr>
-                <tr>
-                  <td class="col-md-4 col-form-label text-info">メールアドレス</td>
-                  <td><%= @user.email %> </td>
-                </tr>
-                <tr>
-                  <td class="col-md-4 col-form-label text-info">お勤め先企業</td>
-                  <td><%= @user.company %> </td>
-                </tr>
-                <tr>
-                  <td class="col-md-4 col-form-label text-info">部署</td>
-                  <td>
-                    <%= @user.titles.each do |t| %>
-                    <%= t.department %>
-                  </td>
-                  <% end %>
-                </tr>
-                <tr>
-                  <td class="col-md-4 col-form-label text-info">役割</td>
-                  <td>
-                    <%= @user.titles.each do |t| %>
-                    <%= t.position %>
-                  </td>
-                  <% end %>
-                </tr>
-              </tbody>
-            </table>
-            <%= link_to "マイページを編集する", edit_user_registration_path, class: "btn btn-info btn-md" %>
-          </div>
+    <h3 class="text-info mt-3 text-center my-5">マイページ</h3>
+  </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-3">
+        <%= attachment_image_tag @user, :profile_image, size: "220x220", fallback: "test.png" %>
+      </div>
+      <div class=" col-md-9">
+        <table class="table table-user-information">
+          <tbody>
+            <tr>
+              <td class="col-md-4 col-form-label text-info">名前</td>
+              <td><%= @user.full_name %> [<%= @user.full_name_kana %>]</td>
+            </tr>
+            <tr>
+              <td class="col-md-4 col-form-label text-info">メールアドレス</td>
+                <td><%= @user.email %> </td>
+              </tr>
+              <tr>
+                <td class="col-md-4 col-form-label text-info">お勤め先企業</td>
+                <td><%= @user.company %> </td>
+              </tr>
+              <tr>
+                <td class="col-md-4 col-form-label text-info">部署</td>
+                <td>
+                  <%= @user.titles.each do |t| %>
+                  <%= t.department %>
+                </td>
+                <% end %>
+              </tr>
+              <tr>
+                <td class="col-md-4 col-form-label text-info">役割</td>
+                <td>
+                  <%= @user.titles.each do |t| %>
+                  <%= t.position %>
+                </td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+          <%= link_to "マイページを編集する", edit_user_registration_path, class: "btn btn-info btn-md" %>
         </div>
       </div>
     </div>
+  </div>
+</div>
