@@ -13,7 +13,7 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
     @todo.user_id = current_user.id
     @todo.save
-    redirect_to todos_path
+    redirect_to user_todos_path
   end
 
   def edit
