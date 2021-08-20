@@ -1,47 +1,60 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>タイトル</strong>
-  <%= @event.title %>
-</p>
-<p>
-  <strong>開始時間</strong>
-  <%= @event.start_time.strftime("%Y-%m-%d %H:%M") %>
-</p>
-<p>
-  <strong>終了時間</strong>
-  <%= @event.finish_time.strftime("%Y-%m-%d %H:%M") %>
-</p>
-<p>
-  <strong>内容</strong>
-  <%= @event.overview %>
-</p>
-
-<h3>OK件数: <%= @event.okeys.count %></h3>
-<% if current_user.already_okeyed?(@event) %>
-  <%= button_to 'OK！を取り消す', event_okey_path(@event), method: :delete %>
-<% else %>
-  <%= button_to 'OK！', event_okeys_path(@event) %>
-<% end %>
-<h2>OKしたユーザー</h2>
-<% @event.okeyed_users.each do |user| %>
-  <li><%= user.full_name %></li>
-<% end %>
-
-<h2>コメント一覧</h2>
-<% @comments.each do |c| %>
-  <div>
-    <a href="/users/<%= c.user.id %>"><%= c.user.full_name %></a>
-    <%= c.body %>
-    <hr>
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <h3 class="text-info mt-3 text-center my-5">予定詳細</h3>
   </div>
-<% end %>
+  <div class="row justify-content-center align-items-center">
+    <table class="table table-user-information col-md-6 mr-5">
+      <tbody>
+        <tr>
+          <td class="col-md-4 col-form-label text-info">タイトル</td>
+          <td><%= @event.title %></td>
+        </tr>
+        <tr>
+          <td class="col-md-4 col-form-label text-info">日時</td>
+          <td> <%= @event.start_time.strftime("%m-%d %H:%M") %>  〜  <%= @event.finish_time.strftime("%m-%d %H:%M") %></td>
+        </tr>
+        <tr>
+          <td class="col-md-4 col-form-label text-info">概要</td>
+          <td><%= @event.overview %> </td>
+        </tr>
+        <tr>
+          <td class="col-md-4 col-form-label text-info">OK数</td>
+          <td><%= @event.okeys.count %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="col-md-5" >
+      <% if current_user.already_okeyed?(@event) %>
+        <%= link_to event_okey_path(@event), method: :delete do %>
+          <i class="fas fa-check-square"></i>
+        <% end %>
+      <% else %>
+        <%= link_to event_okeys_path(@event), method: :post do %>
+          <i class="far fa-check-square"></i>
+        <% end %>
+      <% end %>
+      <h5>OKしたユーザー</h5>
+      <% @event.okeyed_users.each do |user| %>
+        <li><%= user.full_name %></li>
+      <% end %>
 
-<%= form_with model: @comment, url: event_comments_path(@event), local: true do |f| %>
-  <%= f.text_field :body %>
-  <br>
-  <%= f.submit 'コメントする' %>
-<% end %>
+      <h5>コメント一覧</h5>
+      <% @comments.each do |c| %>
+      <div>
+        <a href="/users/<%= c.user.id %>"><%= c.user.full_name %></a>
+        <%= c.body %>
+        <hr>
+      </div>
+      <% end %>
 
-<%= link_to "ホームへ戻る", events_path %>
+      <%= form_with model: @comment, url: event_comments_path(@event), local: true do |f| %>
+        <%= f.text_field :body %>
+      <br>
+      <%= f.submit 'コメントする' %>
+      <% end %>
+      <%= link_to "カレンダーへ戻る", events_path, class: "btn btn-info btn-md" %>
+    </div>
+  </div>
+</div>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

@@ -1,37 +1,25 @@
-<h1>カレンダー</h1>
+<div class="container">
+  <div class="d-flex flex-row">
 
-<table>
-  <thead>
-    <tr>
-      <th>タイトル</th>
-      <th>時間</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="col-md-3">
+      <%= render 'events/new', event: @event %>
+    </div>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event.id) %></td>
-        <td><%= link_to 'Destroy',event_path(event.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="col-md-9">
+      <h2 class="text-info text-center my-5">カレンダー</h2>
 
-<br>
-
-<%= link_to '予定を登録する', new_event_path %>
 
 <%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
 
   <% events.each do |event| %>
     <div>
-      <%= link_to event.title, event %>
+      <%= link_to event.title, event ,class: "small" %>
     </div>
   <% end %>
 <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
