@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :relevant_parties,   dependent: :destroy
   has_many :comments,           dependent: :destroy
   has_many :okeys,              dependent: :destroy
+  has_many :okeyed_events,      through: :okeys, source: :event
   attachment :profile_image
 
   def already_okeyed?(event)

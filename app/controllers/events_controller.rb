@@ -3,16 +3,13 @@ class EventsController < ApplicationController
 
   def index
     @events = current_user.events
+    @event = Event.new
   end
 
   def show
     @event = Event.find(params[:id])
     @comments = @event.comments
     @comment = current_user.comments.new
-  end
-
-  def new
-    @event = Event.new
   end
 
   def create

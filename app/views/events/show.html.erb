@@ -2,59 +2,54 @@
   <div class="row justify-content-center align-items-center">
     <h3 class="text-info mt-3 text-center my-5">予定詳細</h3>
   </div>
-  <div class="row justify-content-center align-items-center">
-    <table class="table table-user-information col-md-6 mr-5">
+  <div class="row justify-content-center">
+    <table class="table col-md-7 d-flex align-items-start">
       <tbody>
         <tr>
-          <td class="col-md-4 col-form-label text-info">タイトル</td>
+          <td class="text-info">タイトル</td>
           <td><%= @event.title %></td>
         </tr>
         <tr>
-          <td class="col-md-4 col-form-label text-info">日時</td>
+          <td class="text-info">日時</td>
           <td> <%= @event.start_time.strftime("%m-%d %H:%M") %>  〜  <%= @event.finish_time.strftime("%m-%d %H:%M") %></td>
         </tr>
         <tr>
-          <td class="col-md-4 col-form-label text-info">概要</td>
+          <td class="text-info">概要</td>
           <td><%= @event.overview %> </td>
-        </tr>
-        <tr>
-          <td class="col-md-4 col-form-label text-info">OK数</td>
-          <td><%= @event.okeys.count %></td>
         </tr>
       </tbody>
     </table>
-    <div class="col-md-5" >
-      <% if current_user.already_okeyed?(@event) %>
-        <%= link_to event_okey_path(@event), method: :delete do %>
-          <i class="fas fa-check-square"></i>
-        <% end %>
-      <% else %>
-        <%= link_to event_okeys_path(@event), method: :post do %>
-          <i class="far fa-check-square"></i>
-        <% end %>
-      <% end %>
-      <h5>OKしたユーザー</h5>
-      <% @event.okeyed_users.each do |user| %>
-        <li><%= user.full_name %></li>
-      <% end %>
+    <div class="col-md-5">
+      <div class="d-flex flex-row my-3" >
+        <div id="okeys_buttons_<%= @event.id %>">
+          <%= render partial: 'okeys/okey', locals: { event: @event } %>
+        </div>
+        <div class="okey_count ml-2"><%= @event.okeys.count %> 人が予定をチェックしました</div>
+        <div class="fukidashi">
+          <% @event.okeyed_users.each do |user| %>
+            <%= user.full_name %>さん
+          <% end %>
+        </div>
+      </div>
 
-      <h5>コメント一覧</h5>
+      <h5 class ="mt-5 text-info">コメント一覧</h5>
       <% @comments.each do |c| %>
       <div>
-        <a href="/users/<%= c.user.id %>"><%= c.user.full_name %></a>
+        <i class="far fa-comment-dots"></i>
+        <a href="/users/<%= c.user.id %>"><%= c.user.full_name %>さん</a><br>
         <%= c.body %>
         <hr>
       </div>
       <% end %>
-
       <%= form_with model: @comment, url: event_comments_path(@event), local: true do |f| %>
-        <%= f.text_field :body %>
+        <%= f.text_area :body, :size=>"53x4" %>
       <br>
-      <%= f.submit 'コメントする' %>
+      <%= f.submit 'コメントする', class: "btn btn-info btn-md" %>
       <% end %>
-      <%= link_to "カレンダーへ戻る", events_path, class: "btn btn-info btn-md" %>
+    </div>
+    <div class= "row my-5" >
+      <%= link_to "カレンダーへ戻る", events_path, class: "btn btn-secondary btn-md mr-2" %>
+      <%= link_to 'この予定を編集する', edit_event_path(@event), class: "btn btn-info btn-md ml-2" %>
     </div>
   </div>
 </div>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
