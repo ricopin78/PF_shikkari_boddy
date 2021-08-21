@@ -5,15 +5,15 @@
       <%= render 'todos/new', todo: @todo %>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9 todos">
       <h2 class="text-info text-center my-5">TODOリスト</h2>
 
       <div class ="todo-box">
         <!--重要×緊急-->
-        <div class ="todo-list">
+        <div class ="todo-list list0">
           <h5 class ="todo-list-label label0 text-center">重要×緊急</h5>
-          <% @todo0.each do |t| %>
-          <div class="todo-card">
+          <% @todos0.each do |t| %>
+          <div class="todo-card todo-card0">
             <div class="todo-title">
               <%= t.title %>
             </div>
@@ -24,10 +24,11 @@
           <% end %>
         </div>
 
+        <div ="list-next" >
         <!--重要×緊急でない-->
-        <div class ="todo-list">
+        <div class ="todo-list list1">
           <h5 class ="todo-list-label label1 text-center">重要×緊急でない</h5>
-          <% @todo1.each do |t| %>
+          <% @todos1.each do |t| %>
           <div class="todo-card">
             <div class="todo-title">
               <%= t.title %>
@@ -40,9 +41,9 @@
         </div>
 
         <!--重要でない×緊急-->
-        <div class ="todo-list">
+        <div class ="todo-list list2">
           <h5 class ="todo-list-label label2 text-center">重要でない×緊急</h5>
-          <% @todo2.each do |t| %>
+          <% @todos2.each do |t| %>
           <div class="todo-card">
             <div class="todo-title">
               <%= t.title %>
@@ -55,9 +56,9 @@
         </div>
 
         <!--重要でない×緊急でない-->
-        <div class ="todo-list">
+        <div class ="todo-list list3">
           <h5 class ="todo-list-label label3 text-center">重要でない×緊急でない</h5>
-          <% @todo3.each do |t| %>
+          <% @todos3.each do |t| %>
           <div class="todo-card">
             <div class="todo-title">
               <%= t.title %>
@@ -68,7 +69,6 @@
           </div>
           <% end %>
         </div>
-
       </div>
     </div>
   </div>

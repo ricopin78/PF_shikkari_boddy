@@ -3,10 +3,10 @@ class TodosController < ApplicationController
   def index
     @todo = Todo.new
     @user = current_user
-    @todo0 = Todo.where(user_id: @user.id, rank: "重要×緊急")
-    @todo1 = Todo.where(user_id: @user.id, rank: "重要×緊急でない")
-    @todo2 = Todo.where(user_id: @user.id, rank: "重要でない×緊急")
-    @todo3 = Todo.where(user_id: @user.id, rank: "重要でない×緊急でない")
+    @todos0 = Todo.where(user_id: @user.id, rank: "重要×緊急")
+    @todos1 = Todo.where(user_id: @user.id, rank: "重要×緊急でない")
+    @todos2 = Todo.where(user_id: @user.id, rank: "重要でない×緊急")
+    @todos3 = Todo.where(user_id: @user.id, rank: "重要でない×緊急でない")
   end
 
   def show
@@ -39,7 +39,7 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-     params.require(:todo).permit(:title, :body, :user_id, :deadline, :duration, :completed, :priority)
+     params.require(:todo).permit(:title, :body, :user_id, :deadline, :duration, :completed, :rank)
   end
 
 end

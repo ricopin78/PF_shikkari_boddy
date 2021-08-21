@@ -7,11 +7,9 @@
 
     <div class="col-md-9">
       <h2 class="text-info text-center my-5">カレンダー</h2>
-
-<%= month_calendar events: @events do |date, events| %>
-  <%= date.day %>
-
-  <% events.each do |event| %>
+      <%= month_calendar events: @events do |date, events| %>
+      <%= date.day %>
+      <% events.each do |event| %>
     <div>
       <%= link_to event.title, event ,class: "small" %>
     </div>
