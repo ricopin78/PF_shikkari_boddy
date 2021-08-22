@@ -1,5 +1,3 @@
-<h1>Todos#show</h1>
-<p>Find me in app/views/todos/show.html.erb</p>
 
   <table class="table table-btodoless">
     <tr>
@@ -19,4 +17,4 @@
       <td><%= @todo.body %></td>
     </tr>
   </table>
-  <%= link_to "TODOを削除する", todo_path(@todo), method: :delete %>
+  <%= link_to "TODOを削除する", user_todo_path(@todo), method: :delete %>
