@@ -30,8 +30,11 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
-    redirect_to events_path, notice:"削除しました"
+    if @event.destroy
+      redirect_to events_path
+    else
+      render :show, notice: '削除できませんでした'
+    end
   end
 
   private

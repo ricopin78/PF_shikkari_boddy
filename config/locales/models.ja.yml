@@ -3,7 +3,13 @@ ja:
     attributes:
       user:
         email: メールアドレス
+        encrypted_password: パスワード
         password: パスワード
         password_confirmation: 確認用パスワード
-        remember_me: 次回から自動的にログイン
-      event:
+        last_name: 姓
+        first_name: 名
+        last_name_kana: 姓（カナ）
+        first_name_kana: 名（カナ）
+        profile_image: プロフィール写真
+        company: お勤め先企業名
+        remember_me:  次回から自動ログイン
