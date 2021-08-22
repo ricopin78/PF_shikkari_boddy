@@ -3,7 +3,6 @@ class EventsController < ApplicationController
   def index
     @events = current_user.events
     @event = Event.new
-    @users = User.all
   end
 
   def show

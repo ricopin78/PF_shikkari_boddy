@@ -1,19 +1,42 @@
-
-<h2>予定の編集</h2>
-<%= form_with model: @event, local: true do |f| %>
-
-<%= f.label :title, "タイトル" %>
-<%= f.text_field :title %>
-
-<%= f.label :start_time, "開始日時" %>
-<%= f.datetime_field :start_time , autofocus: true %>
-
-<%= f.label :finish_time, "終了日時" %>
-<%= f.datetime_field :finish_time , autofocus: true %>
-
-<%= f.label :overview, "概要" %>
-<%= f.text_area :overview %>
-
-<%= f.submit "予定を編集する", class: "btn btn-success" %>
-
-<% end %>
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+      <h3 class="text-center text-info my-5">予定の編集</h3></h3>
+        <%= form_with model: @event, local: true do |f| %>
+      <div class="form-group my-4">
+        <%= f.label "タイトル", class: "text-info" %><br />
+        <%= f.text_field :title, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group my-4">
+        <%= f.label "開始日時", class: "text-info" %>
+        <%= f.datetime_field :start_time, class:"form-control" %>
+      </div>
+      <div class="form-group my-4">
+        <%= f.label "終了日時", class: "text-info" %>
+        <%= f.datetime_field :finish_time, class:"form-control" %>
+      </div>
+      <div class="form-group my-4">
+        <%= f.label "概要" ,class: "text-info" %><br />
+        <%= f.text_area :overview, class: "form-control" %>
+      </div>
+      <div class="form-group my-4">
+      <%= link_to_add_association " 関係者を追加", f, :relevant_parties,
+        class: 'fas fa-user-plus text-info',
+        data: {
+        association_insertion_node: '#detail-association-insertion-point',
+        association_insertion_method: 'append'
+        } %>
+      </div>
+      <div class="form-group" id='detail-association-insertion-point'>
+        <%= f.fields_for :relevant_parties do |r| %>
+          <%= render 'relevant_party_fields', f: r %>
+        <% end %>
+      </div>
+      <div class= "row my-5" >
+        <%= link_to "予定詳細へ戻る", event_path(@event), class: "btn btn-secondary btn-md mr-2" %>
+        <%= f.submit "編集内容を保存する", class: "btn btn-info btn-md ml-2" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
