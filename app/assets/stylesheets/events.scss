@@ -7,7 +7,7 @@
       margin: 0;
     }
 
-    .fukidashi {
+    .okeyed_users {
       display: none;
       width: 200px;
       position: absolute;
@@ -19,7 +19,7 @@
       color: #fff;
       font-size: small;
     }
-    .fukidashi:after {
+    .okeyed_users:after {
       position: absolute;
       width: 0;
       height: 0;
@@ -33,7 +33,7 @@
       pointer-events: none;
       content: " ";
     }
-    .okey_count:hover + .fukidashi {
+    .okey_count:hover + .okeyed_users {
       display: block;
     }
 

@@ -17,6 +17,14 @@
           <td class="text-info">概要</td>
           <td><%= @event.overview %> </td>
         </tr>
+        <tr>
+          <td class="text-info">関係者</td>
+          <td>
+            <% @event.relevant_parties.each do |r| %>
+              <a href="/users/<%= r.user.id %>"><%= r.user.full_name %> </a> さん<br>
+            <% end %>
+          </td>
+        </tr>
       </tbody>
     </table>
     <div class="col-md-5">
@@ -25,7 +33,7 @@
           <%= render partial: 'okeys/okey', locals: { event: @event } %>
         </div>
         <div class="okey_count ml-2"><%= @event.okeys.count %> 人が予定をチェックしました</div>
-        <div class="fukidashi">
+        <div class="okeyed_users">
           <% @event.okeyed_users.each do |user| %>
             <%= user.full_name %>さん
           <% end %>
