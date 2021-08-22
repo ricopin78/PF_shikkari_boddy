@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   def index
     @events = current_user.events
     @event = Event.new
+    @users = User.all
   end
 
   def show
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    @event.update
+    @event.update(update_event_params)
     redirect_to events_path
   end
 
@@ -37,7 +38,11 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :overview, :start_time, :finish_time, :user_id)
+    params.require(:event).permit(:title, :overview, :start_time, :finish_time, :user_id, relevant_parties_attributes: [:user_id, :attendance])
+  end
+
+  def update_event_params
+    params.require(:event).permit(:title, :overview, :start_time, :finish_time, :user_id, relevant_parties_attributes: [:user_id, :attendance, :_destroy, :id])
   end
 
 end
