@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   has_many :event_todos, dependent: :destroy
   has_many :okeys, dependent: :destroy
   has_many :okeyed_users, through: :okeys, source: :user
