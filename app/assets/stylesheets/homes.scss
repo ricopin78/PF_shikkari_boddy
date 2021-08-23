@@ -1,3 +1,20 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.video-wrap {
+  position: relative;
+}
+.video {
+  display: block;
+  margin: 0 0 0 auto;
+}
+p {
+  font-family: serif;
+  color: #fff;
+  font-size: 400%;
+  position: absolute;
+  left: 30%;
+  top: 200px;
+  z-index: 1;
+}
