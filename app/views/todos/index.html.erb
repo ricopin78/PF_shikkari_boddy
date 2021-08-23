@@ -11,7 +11,7 @@
         <div class ="todo-list list0">
           <h5 class ="todo-list-label label0 text-center">重要×緊急</h5>
           <% @todos0.each do |t| %>
-          <div class="todo-card todo-card0">
+          <div class="todo-card">
             <%= link_to user_todo_path(current_user.id, t.id) do %>
               <div class="todo-title"><%= t.title %></div>
               <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
@@ -20,7 +20,7 @@
           <% end %>
         </div>
 
-        <div ="list-next" >
+        <div class="list-next" >
           <!--重要×緊急でない-->
           <div class ="todo-list list1">
             <h5 class ="todo-list-label label1 text-center">重要×緊急でない</h5>
@@ -56,10 +56,10 @@
             <%= link_to user_todo_path(current_user.id, t.id) do %>
             <div class="todo-title"><%= t.title %></div>
             <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
-          </div>
           <% end %>
-        </div>
+          </div>
         <% end %>
+        </div>
       </div>
     </div>
   </div>

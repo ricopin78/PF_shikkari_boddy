@@ -1,20 +1,30 @@
-
-  <table class="table table-btodoless">
-    <tr>
-      <th>タイトル</th>
-      <td><%= @todo.title %></td>
-    </tr>
-    <tr>
-      <th>締め切り日時</th>
-      <td><%= @todo.deadline.strftime('%Y/%m/%d') %></tdH>
-    </tr>
-    <tr>
-      <th>かかる時間</th>
-      <td> <%= @todo.duration.div(60) %> 時間 <%= @todo.duration % 60 %> 分 </td>
-    </tr>
-    <tr>
-      <th>内容</th>
-      <td><%= @todo.body %></td>
-    </tr>
-  </table>
-  <%= link_to "TODOを削除する", user_todo_path(@todo), method: :delete %>
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <h3 class="text-info mt-3 text-center my-5">TODOの詳細</h3></h3>
+  </div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-9">
+      <table class="table table-user-information">
+        <tbody>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">タイトル</td>
+            <td><%= @todo.title %></td>
+          </tr>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">締め切り日時</td>
+            <td><%= @todo.deadline.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">かかる時間</td>
+            <td><%= @todo.duration.div(60) %> 時間 <%= @todo.duration % 60 %> 分</td>
+          </tr>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">内容</td>
+            <td><%= @todo.body %></td>
+          </tr>
+        </tbody>
+      </table>
+        <%= link_to "TODOを削除する", user_todo_path(@todo), method: :delete, class: "btn btn-info btn-md" %>.
+    </div>
+  </div>
+</div>

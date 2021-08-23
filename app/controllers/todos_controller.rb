@@ -27,13 +27,13 @@ class TodosController < ApplicationController
   def update
     @todo = Todo.find(params[:id])
     @todo.update(todo_params)
-    redirect_to todo_path
+    redirect_to user_todo_path
   end
 
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
-    redirect_to todos_path
+    redirect_to user_todos_path
   end
 
   private
