@@ -13,9 +13,19 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-secondary bg-secondary border-bottom">
         <div class="container">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <a class="navbar-brand">
+            <% if user_signed_in? %>
+              <%= link_to events_path, class: "navbar-brand" do %>
+                <%= image_tag ("favicon.png"), size: "35x35" %>
+                <span class="text-light ml-2">シッカリBuddy</span>
+              <% end %>
+            <% else %>
+              <%= link_to root_path, class: "navbar-brand" do %>
+                <%= image_tag ("favicon.png"), size: "35x35" %>
+                <span class="text-light ml-2">シッカリBuddy</span>
+              <% end %>
+            <% end %>
+          </a>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
