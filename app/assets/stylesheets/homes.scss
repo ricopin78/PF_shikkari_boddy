@@ -13,11 +13,30 @@
   width: 100%;
 }
 
-.top-cover {
-    position:absolute;
-    top: 45%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    color:#fff;
-    text-shadow: 0 0 15px #666;
+.catch-word{
+  color: #f9fcff;
+  font-weight: bold;
+  text-shadow: 1px 2px 5px #17a2b8;
 }
+
+.top-catch {
+  position:absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  color: #f9fcff;
+  font-weight: bold;
+  text-shadow: 1px 2px 5px #666666;
+}
+
+.top-title {
+  position:absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  font-weight: bold;
+  color: #17a2b8;
+  font-size: 80px;
+  text-shadow: 1px 2px 5px #f9fcff;
+}
+
