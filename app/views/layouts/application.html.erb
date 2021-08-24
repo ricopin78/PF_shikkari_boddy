@@ -4,11 +4,9 @@
     <title>ShikkariBoddy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-secondary bg-secondary border-bottom">
@@ -34,11 +32,12 @@
       </nav>
     </header>
     <main>
-      <p id="notice"></p>
       <%= yield %>
     </main>
-    <footer class="text-center bg-light mt-5">
-      <p class= "text-secondary small">CopyRight© しっかりBuddy All Rights Reserved.</p>
-    </footer>
+    <div class="container">
+      <footer class="row bg-light mt-5">
+        <p class="col-12 text-secondary text-center small">CopyRight© しっかりBuddy All Rights Reserved.</p>
+      </footer>
+    </div>
   </body>
 </html>
