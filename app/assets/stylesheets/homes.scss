@@ -19,9 +19,12 @@
   text-shadow: 1px 2px 5px #17a2b8;
 }
 
-.top-catch {
+.on-video{
   position:absolute;
-  top: 45%;
+}
+
+.top-catch {
+  top: 35%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   color: #f9fcff;
@@ -30,8 +33,7 @@
 }
 
 .top-title {
-  position:absolute;
-  top: 60%;
+  top: 45%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   font-weight: bold;
@@ -40,3 +42,19 @@
   text-shadow: 1px 2px 5px #f9fcff;
 }
 
+.top-resistration{
+  top: 75%;
+  left: 40%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 15%;
+  font-size: 20px;
+}
+
+.top-session{
+  top: 75%;
+  left: 60%;
+  transform: translateY(-50%) translateX(-50%);
+  color: #17a2b8;
+  width: 15%;
+  font-size: 20px;
+}
