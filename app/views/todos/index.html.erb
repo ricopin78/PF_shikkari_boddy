@@ -8,8 +8,8 @@
 
       <div class ="todo-box">
         <!--重要×緊急-->
+        <h5 class ="todo-list-label label0 text-center">重要×緊急</h5>
         <div class ="todo-list list0">
-          <h5 class ="todo-list-label label0 text-center">重要×緊急</h5>
           <% @todos0.each do |t| %>
           <div class="todo-card">
             <%= link_to user_todo_path(current_user.id, t.id) do %>
@@ -20,37 +20,41 @@
           <% end %>
         </div>
 
-        <div class="list-next" >
+        <div class="lists-next" >
           <!--重要×緊急でない-->
-          <div class ="todo-list list1">
+          <div class="list-next">
             <h5 class ="todo-list-label label1 text-center">重要×緊急でない</h5>
-            <% @todos1.each do |t| %>
-            <div class="todo-card">
-            <%= link_to user_todo_path(current_user.id, t.id) do %>
-              <div class="todo-title"><%= t.title %></div>
-              <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
-            <% end %>
+            <div class ="todo-list list1">
+              <% @todos1.each do |t| %>
+              <div class="todo-card">
+              <%= link_to user_todo_path(current_user.id, t.id) do %>
+                <div class="todo-title"><%= t.title %></div>
+                <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
+              <% end %>
+              </div>
+              <% end %>
             </div>
-            <% end %>
           </div>
 
           <!--重要でない×緊急-->
-          <div class ="todo-list list2">
+          <div class="list-next">
             <h5 class ="todo-list-label label2 text-center">重要でない×緊急</h5>
-            <% @todos2.each do |t| %>
-            <div class="todo-card">
-            <%= link_to user_todo_path(current_user.id, t.id) do %>
-              <div class="todo-title"><%= t.title %></div>
-              <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
+            <div class ="todo-list list2">
+              <% @todos2.each do |t| %>
+              <div class="todo-card">
+              <%= link_to user_todo_path(current_user.id, t.id) do %>
+                <div class="todo-title"><%= t.title %></div>
+                <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
+              </div>
+              <% end %>
             </div>
             <% end %>
           </div>
-          <% end %>
         </div>
 
         <!--重要でない×緊急でない-->
+        <h5 class ="todo-list-label label3 text-center">重要でない×緊急でない</h5>
         <div class ="todo-list list3">
-          <h5 class ="todo-list-label label3 text-center">重要でない×緊急でない</h5>
           <% @todos3.each do |t| %>
           <div class="todo-card">
             <%= link_to user_todo_path(current_user.id, t.id) do %>
