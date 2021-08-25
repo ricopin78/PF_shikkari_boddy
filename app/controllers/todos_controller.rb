@@ -15,9 +15,17 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(todo_params)
-    @todo.user_id = current_user.id
-    @todo.save
-    redirect_to user_todos_path
+    @user = current_user
+    @todo.user_id = @user.id
+    if @todo.save
+      redirect_to user_todos_path
+    else
+      @todos0 = Todo.where(user_id: @user.id, rank: "重要×緊急")
+      @todos1 = Todo.where(user_id: @user.id, rank: "重要×緊急でない")
+      @todos2 = Todo.where(user_id: @user.id, rank: "重要でない×緊急")
+      @todos3 = Todo.where(user_id: @user.id, rank: "重要でない×緊急でない")
+      render :index
+    end
   end
 
   def edit

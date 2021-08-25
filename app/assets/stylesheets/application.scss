@@ -31,12 +31,15 @@ h4 {
   background-image: linear-gradient(to right, #17a2b8 0%, #87ceeb 100%);
 }
 
-.notice{
+
+// エラーメッセージ
+
+.notice {
   color: #ff6347;
+  font-size: 12px;
 }
 
-.btn-delete
-{
+.btn-delete{
   background-color: #ff6347;
 }
 

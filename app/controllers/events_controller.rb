@@ -14,8 +14,12 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
-    @event.save
-    redirect_to events_path
+    if @event.save
+      redirect_to events_path
+    else
+      @events = current_user.events
+      render :index
+    end
   end
 
   def edit
@@ -33,6 +37,8 @@ class EventsController < ApplicationController
     if @event.destroy
       redirect_to events_path(current_user)
     else
+      @events = current_user.events
+    　@event = Event.new
       render :show, notice: '削除できませんでした'
     end
   end

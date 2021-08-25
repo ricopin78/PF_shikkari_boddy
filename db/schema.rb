@@ -13,35 +13,32 @@
 ActiveRecord::Schema.define(version: 2021_08_03_152033) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "event_id"
+    t.integer "user_id", null: false
+    t.integer "event_id", null: false
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_comments_on_event_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "event_todos", force: :cascade do |t|
     t.integer "event_id", null: false
     t.string "title", null: false
-    t.text "body"
     t.datetime "deadline", null: false
-    t.integer "duration"
     t.boolean "completed"
+    t.integer "duration"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.datetime "start_time", null: false
     t.datetime "finish_time", null: false
     t.string "title", null: false
     t.text "overview"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "okeys", force: :cascade do |t|
@@ -73,7 +70,7 @@ ActiveRecord::Schema.define(version: 2021_08_03_152033) do
     t.text "body"
     t.datetime "deadline", null: false
     t.integer "duration"
-    t.integer "rank", default: 0, null: false
+    t.integer "priority", default: 0, null: false
     t.boolean "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

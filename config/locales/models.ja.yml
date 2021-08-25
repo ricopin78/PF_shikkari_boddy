@@ -13,4 +13,27 @@ ja:
         profile_image: プロフィール写真
         company: お勤め先企業名
         remember_me:  次回から自動ログイン
-      
+      comment:
+        body: 内容
+      event_todo:
+        title: タイトル
+        body:  内容
+        deadline: 締め切り
+        duration:  かかる見込み時間
+        completed: 完了ステータス
+      event:
+        start_time: 開始日時
+        finish_time: 終了日時
+        title: タイトル
+        overview: 概要
+      relevant_party:
+        attendance: 出欠
+      title:
+        department: 部署
+        position: 役職
+      todo:
+        title: タイトル
+        body:  内容
+        deadline: 締め切り
+        duration:  かかる見込み時間
+        completed: 完了ステータス
