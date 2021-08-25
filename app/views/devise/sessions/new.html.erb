@@ -1,6 +1,11 @@
 <div class="container">
   <div class="row justify-content-center align-items-center">
     <div class="col-md-6">
+      <p class="notice">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+      </p>
       <h3 class="text-center text-info my-5">ログイン</h3>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
