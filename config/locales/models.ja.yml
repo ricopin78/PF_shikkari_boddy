@@ -14,6 +14,8 @@ ja:
         company: お勤め先企業名
         remember_me:  次回から自動ログイン
         current_password:  現在のパスワード
+        department: 部署
+        position: 役職
       comment:
         body: 内容
       event_todo:
@@ -29,9 +31,6 @@ ja:
         overview: 概要
       relevant_party:
         attendance: 出欠
-      title:
-        department: 部署
-        position: 役職
       todo:
         title: タイトル
         body:  内容

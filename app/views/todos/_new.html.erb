@@ -8,9 +8,9 @@
     </div>
   </div>
   <div class="form-group">
-      <%= f.label "締め切り日時", class: "text-info" %>
-       <div class="field">
-      <%= f.datetime_field :deadline, class: "form_controll" %>
+    <%= f.label "締め切り日時", class: "text-info" %>
+    <div class="field form_select">
+      <%= f.datetime_select :deadline, use_month_numbers: true, date_separator: ' 月', datetime_separator: ' 日', discard_year: true, minute_step: 10 %>
     </div>
   </div>
   <div class="form-group">
