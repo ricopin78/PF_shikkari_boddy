@@ -23,6 +23,7 @@ class User < ApplicationRecord
   validates :first_name,             presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
   validates :first_name_kana,        presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :email,                  presence: true, format: { with: /\A\S+@\S+\.\S+\z/ }
+  validates :company,                presence: true
 
   def full_name
     last_name + first_name

@@ -1,14 +1,10 @@
 <div class="container">
   <div class="row justify-content-center align-items-center">
     <div class="col-md-6">
-      <p class="notice">
-      <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-      <% end %>
-      </p>
       <h3 class="text-center text-info my-5">新規会員登録</h3>
       <div class="form-group my-4">
       <%= form_with model: @user, url: user_registration_path(current_user), local: true, class: "mb-3 pl-md-3" do |f| %>
+      <%= render 'layouts/notification', model: f.object %>
       　<div class="form-group row">
           <%= f.label "名前", class: "col-md-4 col-form-label text-info" %>
           <div class="col-sm-6 col-md-4">
@@ -38,6 +34,14 @@
         <div class="form-group my-4">
           <%= f.label :company, "お勤め先企業名", class: "text-info" %>
           <%= f.text_field :company, autofocus: true, placeholder: "〇〇株式会社", class:"form-control" %>
+        </div>
+        <div class="form-group my-4">
+          <%= f.label :department, "部署", class: "text-info" %>
+          <%= f.text_field :department, autofocus: true, placeholder: "〇〇部", class:"form-control" %>
+        </div>
+        <div class="form-group my-4">
+          <%= f.label :position, "役職", class: "text-info" %>
+          <%= f.text_field :position, autofocus: true, class:"form-control" %>
         </div>
         <div class="form-group my-4">
           <%= f.label :password ,class: "text-info" %><br />

@@ -32,20 +32,23 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
       <div class="form-group my-4">
-        <%= f.label :addres, "お勤め先企業名", class: "text-info" %>
+        <%= f.label :company, "お勤め先企業名", class: "text-info" %>
         <%= f.text_field :company, autofocus: true, class:"form-control" %>
       </div>
       <div class="form-group my-4">
-        <%= f.label :password ,class: "text-info" %><br />
-        <%= f.password_field :password, autofocus: true, autocomplete: "current-password", class: "form-control" %>
+        <%= f.label :department, "部署", class: "text-info" %>
+        <%= f.text_field :department, autofocus: true, class:"form-control" %>
       </div>
       <div class="form-group my-4">
-        <%= f.label :password_confirmation ,class: "text-info" %><br />
-        <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "current-password", class: "form-control" %>
-        <div class="text-right">
-          <%= link_to "役職を新しく登録する", new_user_title_path(current_user), class: "text_info" %>
-        </div>
+        <%= f.label :position, "部署", class: "text-info" %>
+        <%= f.text_field :position, autofocus: true, class:"form-control" %>
       </div>
+
+      <div class="form-group my-4">
+        <%= f.label :current_password ,class: "text-info" %><br />
+        <%= f.password_field :current_password, autofocus: true, autocomplete: "current-password", class: "form-control" %>
+      </div>
+
       <div class="form_group">
         <%= f.submit "編集内容を保存する", class: "btn btn-info btn-md" %>
       </div>

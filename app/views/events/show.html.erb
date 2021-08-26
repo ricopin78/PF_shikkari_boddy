@@ -42,12 +42,13 @@
 
       <h5 class ="mt-5 text-info">コメント一覧</h5>
       <% @comments.each do |c| %>
-      <div>
-        <i class="far fa-comment-dots"></i>
-        <a href="/users/<%= c.user.id %>"><%= c.user.full_name %>さん</a><br>
-        <%= c.body %>
-        <%= link_to "", event_comment_path(c.id), class: 'fas fa-trash-alt small text-secondary ml-2', method: :delete %>
-        <hr>
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <i class="far fa-comment-dots"></i>
+          <a href="/users/<%= c.user.id %>"><%= c.user.full_name %>さん</a><br>
+          <p><%= c.body %></p>
+        </div>
+        <p><%= link_to "", event_comment_path(c.id), class: 'fas fa-trash-alt text-secondary', method: :delete %></p>
       </div>
       <% end %>
       <%= form_with model: @comment, url: event_comments_path(@event), local: true do |f| %>

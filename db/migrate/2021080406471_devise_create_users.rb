@@ -35,13 +35,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps null: false
-      t.string :first_name
-      t.string :last_name
-      t.string :last_name_kana
-      t.string :first_name_kana
+      t.string :first_name,         null: false
+      t.string :last_name,          null: false
+      t.string :last_name_kana,     null: false
+      t.string :first_name_kana,    null: false
       t.string :profile_image_id
-      t.string :company
-
+      t.string :company,            null: false
+      t.string :department
+      t.string :position
     end
 
     add_index :users, :email,                unique: true

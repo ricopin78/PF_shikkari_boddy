@@ -23,19 +23,11 @@
           </tr>
           <tr>
             <td class="col-md-4 col-form-label text-info">部署</td>
-            <td>
-              <%= @user.titles.each do |t| %>
-              <%= t.department %>
-            </td>
-            <% end %>
+            <td><%= @user.department %> </td>
           </tr>
           <tr>
-            <td class="col-md-4 col-form-label text-info">役割</td>
-            <td>
-              <%= @user.titles.each do |t| %>
-              <%= t.position %>
-            </td>
-          <% end %>
+            <td class="col-md-4 col-form-label text-info">役職</td>
+            <td><%= @user.position %> </td>
           </tr>
         </tbody>
       </table>

@@ -56,22 +56,14 @@ ActiveRecord::Schema.define(version: 2021_08_03_152033) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "titles", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "department", null: false
-    t.string "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "todos", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", null: false
-    t.text "body"
     t.datetime "deadline", null: false
-    t.integer "duration"
-    t.integer "priority", default: 0, null: false
     t.boolean "completed"
+    t.integer "priority", default: 0, null: false
+    t.integer "duration"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,12 +74,14 @@ ActiveRecord::Schema.define(version: 2021_08_03_152033) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "last_name_kana"
-    t.string "first_name_kana"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
     t.string "profile_image_id"
-    t.string "company"
+    t.string "company", null: false
+    t.string "department"
+    t.string "position"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

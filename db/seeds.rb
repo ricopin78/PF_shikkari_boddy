@@ -14,6 +14,8 @@
       last_name_kana: "テスト",
       first_name_kana: "タロウ",
       company: "シッカリ",
+      department: "営業部",
+      position: "課長",
       password: 'password'
     )
   end
@@ -35,13 +37,5 @@
     overview: 'テキストテキストテキストテキスト',
     start_time: '2021-07-08 11:11:11',
     finish_time: '2021-07-08 11:11:12',
-
-  )
-  end
-
-  User.all.each do |user|
-  user. titles.create!(
-    department: '営業部',
-    position: 'テキストテキストテキストテキスト'
   )
   end
