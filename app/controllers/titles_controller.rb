@@ -1,5 +1,4 @@
 class TitlesController < ApplicationController
-
   def new
     @title = Title.new
   end
@@ -25,7 +24,6 @@ class TitlesController < ApplicationController
     @title = Title.find(params[id])
     @title.destroy
     redirect_to user_path
-
   end
 
   private
@@ -33,5 +31,4 @@ class TitlesController < ApplicationController
   def title_params
     params.require(:title).permit(:department, :position)
   end
-
 end

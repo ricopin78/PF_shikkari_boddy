@@ -13,6 +13,7 @@ ja:
         profile_image: プロフィール写真
         company: お勤め先企業名
         remember_me:  次回から自動ログイン
+        current_password:  現在のパスワード
       comment:
         body: 内容
       event_todo:
@@ -37,3 +38,4 @@ ja:
         deadline: 締め切り
         duration:  かかる見込み時間
         completed: 完了ステータス
+        priority: 優先順位

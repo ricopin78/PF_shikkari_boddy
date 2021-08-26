@@ -1,4 +1,4 @@
 class Title < ApplicationRecord
   belongs_to :user
-  validates :department,      presence: true
+  validates :department, presence: true
 end

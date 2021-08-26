@@ -15,5 +15,4 @@ class RelevantPartiesControllerTest < ActionDispatch::IntegrationTest
     get relevant_parties_destroy_url
     assert_response :success
   end
-
 end

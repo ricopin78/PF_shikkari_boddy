@@ -30,5 +30,4 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
     get todos_destroy_url
     assert_response :success
   end
-
 end

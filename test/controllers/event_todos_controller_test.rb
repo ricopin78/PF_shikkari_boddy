@@ -15,5 +15,4 @@ class EventTodosControllerTest < ActionDispatch::IntegrationTest
     get event_todos_destroy_url
     assert_response :success
   end
-
 end

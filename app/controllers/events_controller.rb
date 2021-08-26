@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-
   def index
     @events = current_user.events
     @event = Event.new
@@ -28,8 +27,11 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    @event.update(update_event_params)
-    redirect_to events_path
+    if @event.update(update_event_params)
+      redirect_to events_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -38,7 +40,7 @@ class EventsController < ApplicationController
       redirect_to events_path(current_user)
     else
       @events = current_user.events
-    　@event = Event.new
+      　 @event = Event.new
       render :show, notice: '削除できませんでした'
     end
   end
@@ -52,5 +54,4 @@ class EventsController < ApplicationController
   def update_event_params
     params.require(:event).permit(:title, :overview, :start_time, :finish_time, :user_id, relevant_parties_attributes: [:user_id, :attendance, :_destroy, :id])
   end
-
 end

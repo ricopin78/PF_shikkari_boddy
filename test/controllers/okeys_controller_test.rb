@@ -10,5 +10,4 @@ class OkeysControllerTest < ActionDispatch::IntegrationTest
     get okeys_destroy_url
     assert_response :success
   end
-
 end

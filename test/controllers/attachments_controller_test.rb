@@ -10,5 +10,4 @@ class AttachmentsControllerTest < ActionDispatch::IntegrationTest
     get attachments_destroy_url
     assert_response :success
   end
-
 end

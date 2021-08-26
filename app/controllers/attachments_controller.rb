@@ -1,5 +1,4 @@
 class AttachmentsController < ApplicationController
-
   def create
     @attachment = Attachment.create!(file_params)
     @attachment.event_id = params[:event_id]
@@ -23,5 +22,4 @@ class AttachmentsController < ApplicationController
   def event_params
     params.require(:event).permit(:id)
   end
-
 end

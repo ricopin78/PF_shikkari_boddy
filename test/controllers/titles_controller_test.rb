@@ -20,5 +20,4 @@ class TitlesControllerTest < ActionDispatch::IntegrationTest
     get titles_destroy_url
     assert_response :success
   end
-
 end

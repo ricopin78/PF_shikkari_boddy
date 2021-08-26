@@ -22,7 +22,7 @@
   <div class="form-group">
     <div class="field">
     <%= f.label "優先順位", class: "text-info" %>
-    <%= f.select :rank, todo.class.ranks.keys.to_a, {}, {class: "custom-select mb-2 mr-sm-2"} %>
+    <%= f.select :priority, todo.class.priorities.keys.to_a, {}, {class: "custom-select mb-2 mr-sm-2"} %>
     </div>
   </div>
   <div class="form-group">
