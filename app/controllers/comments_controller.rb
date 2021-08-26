@@ -13,7 +13,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    Comment.find_by(id: params[:id], event_id: params[:event_id]).destroy
+    @comment = Comment.find_by(params[:id],params[:event_id])
+    @comment.destroy
     redirect_back(fallback_location: root_path)
   end
 

@@ -46,6 +46,7 @@
         <i class="far fa-comment-dots"></i>
         <a href="/users/<%= c.user.id %>"><%= c.user.full_name %>さん</a><br>
         <%= c.body %>
+        <%= link_to "", event_comment_path(c.id), class: 'fas fa-trash-alt small text-secondary ml-2', method: :delete %>
         <hr>
       </div>
       <% end %>
