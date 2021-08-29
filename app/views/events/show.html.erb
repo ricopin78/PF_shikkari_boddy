@@ -40,6 +40,15 @@
         </div>
       </div>
 
+      <!--current_userが関係者に含まれていた場合、出欠確認を表示-->
+      <h5 class ="mt-5 text-info">出欠を回答する</h5></h5>
+      <div class="form-group">
+        <div class="row align-items-center ml-3">
+          <%= button_to '出席', event_relevant_party_path(@event), {method: :patch, params: {attendance: "出席"}, class: "btn btn-outline-secondary"} %>
+          <%= button_to '欠席', event_relevant_party_path(@event), {method: :patch, params: {attendance: "欠席"}, class: "btn btn-outline-secondary"} %>
+      　</div>
+      </div>
+
       <h5 class ="mt-5 text-info">コメント一覧</h5>
       <% @comments.each do |c| %>
       <div class="d-flex justify-content-between align-items-center">
@@ -51,6 +60,7 @@
         <p><%= link_to "", event_comment_path(c.id), class: 'fas fa-trash-alt text-secondary', method: :delete %></p>
       </div>
       <% end %>
+      <!--新規コメント-->
       <%= form_with model: @comment, url: event_comments_path(@event), local: true do |f| %>
       <%= render 'layouts/notification', model: f.object %>
         <%= f.text_area :body, :size=>"53x4" %>
