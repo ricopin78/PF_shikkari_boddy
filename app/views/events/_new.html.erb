@@ -10,15 +10,15 @@
 
 <div class="form-group">
   <%= f.label "開始日時", class: "text-info" %>
-  <div class="field">
-    <%= f.datetime_field :start_time, class: "form_controll" %>
+  <div class="field form_select">
+    <%= f.datetime_select :start_time, use_month_numbers: true, date_separator: ' 月', datetime_separator: ' 日', discard_year: true, minute_step: 5 %>
   </div>
 </div>
 
 <div class="form-group">
   <%= f.label "終了日時", class: "text-info" %>
-  <div class="field">
-    <%= f.datetime_field :finish_time, class: "form_controll" %>
+  <div class="field form_select">
+    <%= f.datetime_select :finish_time, use_month_numbers: true, date_separator: ' 月', datetime_separator: ' 日', discard_year: true, minute_step: 5 %>
   </div>
 </div>
 
