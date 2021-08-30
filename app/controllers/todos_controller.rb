@@ -1,4 +1,7 @@
 class TodosController < ApplicationController
+
+  before_action :set_q, only: [:index, :search]
+
   def index
     @todo = Todo.new
     @user = current_user
@@ -43,9 +46,18 @@ class TodosController < ApplicationController
     redirect_to user_todos_path
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
 
   def todo_params
-    params.require(:todo).permit(:title, :body, :user_id, :deadline, :duration, :completed, :priority)
+    params.require(:todo).permit(:title, :body, :deadline, :user_id, :duration)
   end
+
+  def set_q
+    @q = current_user.todos.ransack(params[:q])
+  end
+
 end
