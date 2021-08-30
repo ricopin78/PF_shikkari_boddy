@@ -5,10 +5,11 @@ class TodosController < ApplicationController
   def index
     @todo = Todo.new
     @user = current_user
-    @todos0 = Todo.where(user_id: @user.id, priority: "重要×緊急").order("deadline")
-    @todos1 = Todo.where(user_id: @user.id, priority: "重要×緊急でない").order("deadline")
-    @todos2 = Todo.where(user_id: @user.id, priority: "重要でない×緊急").order("deadline")
-    @todos3 = Todo.where(user_id: @user.id, priority: "重要でない×緊急でない").order("deadline")
+    @todos0 = Todo.where(user_id: @user.id, priority: "重要×緊急", completed: true).order("deadline")
+    @todos1 = Todo.where(user_id: @user.id, priority: "重要×緊急でない", completed: true).order("deadline")
+    @todos2 = Todo.where(user_id: @user.id, priority: "重要でない×緊急", completed: true).order("deadline")
+    @todos3 = Todo.where(user_id: @user.id, priority: "重要でない×緊急でない", completed: true).order("deadline")
+    @todos_completed = Todo.where(user_id: @user.id, completed: false).order("deadline")
   end
 
   def show
