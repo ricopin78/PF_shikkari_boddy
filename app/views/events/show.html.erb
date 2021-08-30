@@ -41,8 +41,7 @@
       </div>
 
       <!--current_userが関係者に含まれていた場合、出欠確認を表示-->
-
-      <% if @event.relevant_parties.include?(current_user.id) %>
+      <% if @relevant_party.present? %>
       <h5 class ="mt-5 text-info mb-4">出欠を回答する</h5></h5>
       <div class="form-group">
         <div class="row align-items-center d-flex justify-content-center">
@@ -50,7 +49,6 @@
           <%= button_to '     欠席     ', event_relevant_party_path(@event), {method: :patch, params: {attendance: "欠席"}, class: "btn btn-outline-secondary ml-3"} %>
       　</div>
       </div>
-      <% else %>
       <% end %>
       <h5 class ="mt-5 text-info">コメント一覧</h5>
       <% @comments.each do |c| %>

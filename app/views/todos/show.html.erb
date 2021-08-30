@@ -24,7 +24,17 @@
           </tr>
         </tbody>
       </table>
-        <%= link_to "TODOを削除する", user_todo_path(@todo), method: :delete, class: "btn btn-info btn-md" %>
+      <div class="form-group row my-4">
+        <div class="col-lg-6 col-md-4">
+          <%= link_to "TODOを削除する", user_todo_path(@todo), method: :delete, class: "btn btn-secondary btn-md" %>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <%= form_with model: @todo, url: user_todo_path(current_user.id, @todo.id), local: true do |f| %>
+            <%= f.hidden_field :completed, :value => false %>
+            <%= f.submit "完了", class: "btn btn-info btn-md" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

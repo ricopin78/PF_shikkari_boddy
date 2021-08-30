@@ -1,18 +1,18 @@
 class TodosController < ApplicationController
 
-  before_action :set_q, only: [:index, :search]
+  before_action :set_q
 
   def index
     @todo = Todo.new
     @user = current_user
-    @todos0 = Todo.where(user_id: @user.id, priority: "重要×緊急")
-    @todos1 = Todo.where(user_id: @user.id, priority: "重要×緊急でない")
-    @todos2 = Todo.where(user_id: @user.id, priority: "重要でない×緊急")
-    @todos3 = Todo.where(user_id: @user.id, priority: "重要でない×緊急でない")
+    @todos0 = Todo.where(user_id: @user.id, priority: "重要×緊急").order("deadline")
+    @todos1 = Todo.where(user_id: @user.id, priority: "重要×緊急でない").order("deadline")
+    @todos2 = Todo.where(user_id: @user.id, priority: "重要でない×緊急").order("deadline")
+    @todos3 = Todo.where(user_id: @user.id, priority: "重要でない×緊急でない").order("deadline")
   end
 
   def show
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
   end
 
   def create
@@ -22,26 +22,25 @@ class TodosController < ApplicationController
     if @todo.save
       redirect_to user_todos_path
     else
-      @todos0 = Todo.where(user_id: @user.id, priority: "重要×緊急")
-      @todos1 = Todo.where(user_id: @user.id, priority: "重要×緊急でない")
-      @todos2 = Todo.where(user_id: @user.id, priority: "重要でない×緊急")
-      @todos3 = Todo.where(user_id: @user.id, priority: "重要でない×緊急でない")
+      @todos0 = Todo.where(user_id: @user.id, priority: "重要×緊急").order("deadline")
+      @todos1 = Todo.where(user_id: @user.id, priority: "重要×緊急でない").order("deadline")
+      @todos2 = Todo.where(user_id: @user.id, priority: "重要でない×緊急").order("deadline")
+      @todos3 = Todo.where(user_id: @user.id, priority: "重要でない×緊急でない").order("deadline")
       render :index
     end
   end
 
-  def edit
-    @todo = Todo.find(params[:id])
-  end
-
   def update
-    @todo = Todo.find(params[:id])
-    @todo.update(todo_params)
-    redirect_to user_todo_path
+    @todo = current_user.todos.find(params[:id])
+    if @todo.update(todo_params)
+      redirect_to user_todos_path
+    else
+      render :show
+    end
   end
 
   def destroy
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
     @todo.destroy
     redirect_to user_todos_path
   end
@@ -53,7 +52,7 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:title, :body, :deadline, :user_id, :duration)
+    params.require(:todo).permit(:title, :body, :user_id, :deadline, :duration, :completed, :priority)
   end
 
   def set_q

@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @relevant_party = @event.relevant_parties.where(user_id: current_user.id)
     @comments = @event.comments
     @comment = current_user.comments.new
   end

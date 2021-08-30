@@ -2,6 +2,7 @@
   <div class="d-flex flex-row">
     <div class="col-md-3">
       <%= render 'todos/new', todo: @todo %>
+      <%= render 'todos/search', q: @q %>
     </div>
     <div class="col-md-9 todos">
       <h2 class="text-info text-center my-5">TODOリスト</h2>
