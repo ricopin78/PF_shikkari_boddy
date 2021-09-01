@@ -6,7 +6,7 @@ class CreateTodos < ActiveRecord::Migration[5.2]
       t.datetime :deadline,     null: false
       t.boolean :completed,     defalt: true
       t.integer :priority,      null: false, default: 0
-      t.integer :duration
+      t.integer :duration,      null: false
       t.text :body
       t.timestamps
     end

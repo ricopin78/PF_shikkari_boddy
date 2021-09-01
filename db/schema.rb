@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_08_03_152033) do
     t.datetime "deadline", null: false
     t.boolean "completed"
     t.integer "priority", default: 0, null: false
-    t.integer "duration"
+    t.integer "duration", null: false
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -27,6 +27,7 @@ class TodosController < ApplicationController
       @todos1 = Todo.where(user_id: @user.id, priority: "重要×緊急でない").order("deadline")
       @todos2 = Todo.where(user_id: @user.id, priority: "重要でない×緊急").order("deadline")
       @todos3 = Todo.where(user_id: @user.id, priority: "重要でない×緊急でない").order("deadline")
+      @todos_completed = Todo.where(user_id: @user.id, completed: false).order("deadline")
       render :index
     end
   end
