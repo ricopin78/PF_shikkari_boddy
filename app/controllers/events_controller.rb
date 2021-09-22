@@ -9,6 +9,7 @@ class EventsController < ApplicationController
     @relevant_party = @event.relevant_parties.where(user_id: current_user.id)
     @comments = @event.comments
     @comment = current_user.comments.new
+    @event_todo = EventTodo.new
   end
 
   def create
