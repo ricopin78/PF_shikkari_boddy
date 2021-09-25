@@ -6,8 +6,17 @@ class EventTodosController < ApplicationController
 
   def create
     @event_todo = EventTodo.new(event_todo_params)
-    @event_todo.save
-    redirect_to event_path
+    @event = Event.find(params[:event_id])
+    if @event_todo.save
+      redirect_to event_path(@event)
+    else
+      @event = Event.find(params[:event_id])
+      @relevant_party = @event.relevant_parties.where(user_id: current_user.id)
+      @comments = @event.comments
+      @comment = current_user.comments.new
+      @event_todo = EventTodo.new
+      render 'events/show'
+    end
   end
 
   def update
@@ -28,7 +37,11 @@ class EventTodosController < ApplicationController
   private
 
   def event_todo_params
-    params.require(:event_todo).permit(:title, :body, :user_id, :deadline, :duration, :completed, :priority)
+    params.require(:event_todo).permit(:event_id, :title, :body, :deadline, :duration, :completed, :priority)
+  end
+
+  def event_params
+    params.require(:event).permit(:title, :overview, :start_time, :finish_time, :user_id, relevant_parties_attributes: [:user_id, :attendance])
   end
 
 end
