@@ -18,8 +18,7 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(todo_params)
-    @user = current_user
-    @todo.user_id = @user.id
+    @todo.user_id = current_user.id
     if @todo.save
       redirect_to user_todos_path
     else

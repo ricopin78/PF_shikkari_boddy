@@ -3,6 +3,13 @@ class EventTodosController < ApplicationController
   def show
     @event = Event.find(params[:event_id])
     @event_todo = @event.event_todos.find(params[:id])
+    @todo = Todo.new(todo_params)
+    @todo.user_id = current_user.id
+    if @todo.save
+      redirect_to user_todos_path
+    else
+      render :show
+    end
   end
 
   def create
@@ -21,7 +28,8 @@ class EventTodosController < ApplicationController
   end
 
   def update
-    @event_todo = current_event.event_todos.find(params[:id])
+    @event = Event.find(params[:event_id])
+    @event_todo = @event.event_todos.find(params[:id])
     if @event_todo.update(event_todo_params)
       redirect_to event_path
     else
@@ -43,6 +51,10 @@ class EventTodosController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :overview, :start_time, :finish_time, :user_id, relevant_parties_attributes: [:user_id, :attendance])
+  end
+
+  def todo_params
+    params.permit(:title, :body, :user_id, :deadline, :duration, :completed, :priority)
   end
 
 end
