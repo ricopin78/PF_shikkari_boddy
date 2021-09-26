@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <h3 class="text-info mt-3 text-center my-5">TODOの詳細</h3></h3>
+  </div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-9">
+      <table class="table table-user-information">
+        <tbody>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">タイトル</td>
+            <td><%= @event_todo.title %></td>
+          </tr>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">締め切り日時</td>
+            <td><%= @event_todo.deadline.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">かかる時間</td>
+            <td><%= @event_todo.duration.div(60) %> 時間 <%= @event_todo.duration % 60 %> 分</td>
+          </tr>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">内容</td>
+            <td><%= @event_todo.body %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group row my-4">
+        <div class="col-lg-6 col-md-4">
+          <%= link_to "event_todoを削除する", event_event_todo_path(@event_todo), method: :delete, class: "btn btn-secondary btn-md" %>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <%= form_with model: @event_todo, url: event_event_todo_path(@event_todo.id), local: true do |f| %>
+            <%= f.hidden_field :completed, :value => false %>
+            <%= f.submit "完了", class: "btn btn-info btn-md" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
