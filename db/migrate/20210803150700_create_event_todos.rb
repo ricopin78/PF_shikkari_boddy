@@ -5,7 +5,7 @@ class CreateEventTodos < ActiveRecord::Migration[5.2]
       t.string :title,        null: false
       t.datetime :deadline,   null: false
       t.boolean :completed,   defalt: true
-      t.integer :duration
+      t.integer :duration,    null: false
       t.text :body
       t.timestamps
     end

@@ -1,7 +1,8 @@
 class EventTodosController < ApplicationController
 
   def show
-    @event_todo = current_event.event_todos.find(params[:id])
+    @event = Event.find(params[:event_id])
+    @event_todo = @event.event_todos.find(params[:id])
   end
 
   def create
