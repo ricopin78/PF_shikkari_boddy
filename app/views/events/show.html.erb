@@ -18,14 +18,15 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="field">
-            <%= f.label "かかる見込み時間", class: "text-info" %>
-            <%= f.text_field :duration, class: "form-control" %>
+          <%= f.label "かかる見込み時間", class: "text-info" %>
+          <div class="field row justify-content-center">
+            <%= f.text_area :duration, :size=>"6x1", class: "form-control col-sm-8" %>
+            <%= f.label "分", class: "text-info col-sm-3"%>
           </div>
         </div>
         <div class="form-group">
+          <%= f.label "内容", class: "text-info" %>
           <div class="field">
-            <%= f.label "内容", class: "text-info" %>
             <%= f.text_area :body, class: "form-control" %>
           </div>
         </div>
