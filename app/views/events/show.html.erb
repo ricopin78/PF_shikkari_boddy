@@ -35,14 +35,6 @@
           <%= f.submit "登録する", class: "btn btn-info btn-md" %>
         </div>
       <% end %>
-
-      <h4 class="mt-3 text-center mt-5">新しいコメント</h4>
-      <%= form_with model: @comment, url: event_comments_path(@event), local: true do |f| %>
-      <%= render 'layouts/notification', model: f.object %>
-        <%= f.text_area :body, :size=>"24x4" %>
-      <br>
-      <%= f.submit "送信", class: "btn btn-info btn-md" %>
-      <% end %>
     </div>
 
     <div class="col-md-9">
@@ -65,7 +57,7 @@
           <td><%= @event.overview %> </td>
         </tr>
         <tr>
-          <td class="text-info">この予定のTODO</td>
+          <td class="text-info">TODO</td>
           <td>
             <% @event.event_todos.each do |e| %>
               <a href="<%= e.event_id %>/event_todos/<%= e.id %>"><%= e.title %> </a><br>
@@ -83,11 +75,12 @@
     </table>
 
     <div class="col-md-5">
+      <h5 class ="mt-5 text-info mb-4">既読にする</h5>
       <div class="d-flex flex-row my-3" >
         <div id="okeys_buttons_<%= @event.id %>">
           <%= render partial: 'okeys/okey', locals: { event: @event } %>
         </div>
-        <div class="okey_count ml-2"><%= @event.okeys.count %> 人が予定をチェックしました</div>
+        <div class="okey_count ml-2"><%= @event.okeys.count %> 人が予定を確認しました</div>
         <div class="okeyed_users">
           <% @event.okeyed_users.each do |user| %>
             <%= user.full_name %>さん
@@ -97,7 +90,7 @@
 
       <!--current_userが関係者に含まれていた場合、出欠確認を表示-->
       <% if @relevant_party.present? %>
-      <h5 class ="mt-5 text-info mb-4">出欠を回答する</h5></h5>
+      <h5 class ="mt-5 text-info mb-4">出欠を回答する</h5>
       <div class="form-group">
         <div class="row align-items-center d-flex justify-content-center">
           <%= button_to '     出席     ', event_relevant_party_path(@event.id, current_user.id), {method: :patch, params: {attendance: "出席"}, class: "btn btn-outline-info mr-3"} %>
@@ -106,7 +99,7 @@
       </div>
       <% end %>
 
-      <h5 class ="mt-5 text-info">コメント一覧</h5>
+      <h5 class ="mt-5 text-info">コメントする</h5>
       <% @comments.each do |c| %>
       <div class="d-flex justify-content-between align-items-center">
         <div>
@@ -116,6 +109,12 @@
         </div>
         <p><%= link_to "", event_comment_path(c.id, c.user_id), class: 'fas fa-trash-alt text-secondary', method: :delete %></p>
       </div>
+      <% end %>
+      <%= form_with model: @comment, url: event_comments_path(@event), local: true do |f| %>
+      <%= render 'layouts/notification', model: f.object %>
+        <%= f.text_area :body, :size=>"32x4" %>
+      <br>
+      <%= f.submit "送信", class: "btn btn-info btn-md" %>
       <% end %>
     </div>
 
