@@ -17,7 +17,7 @@ class User < ApplicationRecord
     okeys.exists?(event_id: event.id)
   end
 
-  validates :encrypted_password,     presence: true, length: { minimum: 8 }
+  validates :password,     presence: true, length: { minimum: 8 }
   validates :last_name,              presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
   validates :last_name_kana,         presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :first_name,             presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
