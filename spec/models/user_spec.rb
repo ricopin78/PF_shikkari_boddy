@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
 
   describe '#create' do
+
     let(:user) { build(:user, last_name: nil, first_name: nil, last_name_kana: nil, first_name_kana: nil, email: nil, company: nil, password: nil)}
+
     it "last_nameがない場合は登録できないこと" do
       user.valid?
       expect(user.errors[:last_name]).to include("が入力されていません。")
@@ -45,7 +47,6 @@ RSpec.describe User, type: :model do
       user2.valid?
       expect(user2.errors[:email]).to include("は既に使用されています。")
     end
-
 
   end
 
