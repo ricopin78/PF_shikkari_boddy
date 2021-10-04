@@ -1,51 +1,58 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe 'Userモデルのテスト', type: :model do
 
-  describe '#create' do
+  describe 'バリデーションのテスト' do
 
-    let(:user) { build(:user, last_name: nil, first_name: nil, last_name_kana: nil, first_name_kana: nil, email: nil, company: nil, password: nil)}
+    context '必須項目が入力されていない場合' do
+      let(:user) { build(:user, last_name: nil, first_name: nil, last_name_kana: nil, first_name_kana: nil, email: nil, company: nil, password: nil)}
 
-    it "last_nameがない場合は登録できないこと" do
-      user.valid?
-      expect(user.errors[:last_name]).to include("が入力されていません。")
+      it "last_nameを登録できず、エラーメッセージが表示されること" do
+        user.valid?
+        expect(user.errors[:last_name]).to include("が入力されていません。")
+      end
+
+      it "first_nameを登録できず、エラーメッセージが表示されること" do
+        user.valid?
+        expect(user.errors[:first_name]).to include("が入力されていません。")
+      end
+
+      it "last_name_kanaがない場合を登録できず、エラーメッセージが表示されること" do
+        user.valid?
+        expect(user.errors[:last_name_kana]).to include("が入力されていません。")
+      end
+
+      it "first_name_kanaがない場合を登録できず、エラーメッセージが表示されること" do
+        user.valid?
+        expect(user.errors[:first_name_kana]).to include("が入力されていません。")
+      end
+
+      it "emailがない場合を登録できず、エラーメッセージが表示されること" do
+        user.valid?
+        expect(user.errors[:email]).to include("が入力されていません。")
+      end
+
+      it "companyがない場合を登録できず、エラーメッセージが表示されること" do
+        user.valid?
+        expect(user.errors[:company]).to include("が入力されていません。")
+      end
+
+      it "passwordがない場合を登録できず、エラーメッセージが表示されること" do
+        user.valid?
+        expect(user.errors[:password]).to include("が入力されていません。")
+      end
+
     end
 
-    it "first_nameがない場合は登録できないこと" do
-      user.valid?
-      expect(user.errors[:first_name]).to include("が入力されていません。")
-    end
+    context '重複したメールアドレスの場合' do
 
-    it "last_name_kanaがない場合は登録できないこと" do
-      user.valid?
-      expect(user.errors[:last_name_kana]).to include("が入力されていません。")
-    end
+      it "無効であること" do
+        user1 = FactoryBot.create(:user)
+        user2 = FactoryBot.build(:user)
+        user2.valid?
+        expect(user2.errors[:email]).to include("は既に使用されています。")
+      end
 
-    it "first_name_kanaがない場合は登録できないこと" do
-      user.valid?
-      expect(user.errors[:first_name_kana]).to include("が入力されていません。")
-    end
-
-    it "emailがない場合は登録できないこと" do
-      user.valid?
-      expect(user.errors[:email]).to include("が入力されていません。")
-    end
-
-    it "companyがない場合は登録できないこと" do
-      user.valid?
-      expect(user.errors[:company]).to include("が入力されていません。")
-    end
-
-    it "passwordがない場合は登録できないこと" do
-      user.valid?
-      expect(user.errors[:password]).to include("が入力されていません。")
-    end
-
-    it "重複したメールアドレスの場合無効である" do
-      user1 = FactoryBot.create(:user)
-      user2 = FactoryBot.build(:user)
-      user2.valid?
-      expect(user2.errors[:email]).to include("は既に使用されています。")
     end
 
   end
