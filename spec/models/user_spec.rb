@@ -17,27 +17,27 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         expect(user.errors[:first_name]).to include("が入力されていません。")
       end
 
-      it "last_name_kanaがない場合を登録できず、エラーメッセージが表示されること" do
+      it "last_name_kanaを登録できず、エラーメッセージが表示されること" do
         user.valid?
         expect(user.errors[:last_name_kana]).to include("が入力されていません。")
       end
 
-      it "first_name_kanaがない場合を登録できず、エラーメッセージが表示されること" do
+      it "first_name_kanaを登録できず、エラーメッセージが表示されること" do
         user.valid?
         expect(user.errors[:first_name_kana]).to include("が入力されていません。")
       end
 
-      it "emailがない場合を登録できず、エラーメッセージが表示されること" do
+      it "emailを登録できず、エラーメッセージが表示されること" do
         user.valid?
         expect(user.errors[:email]).to include("が入力されていません。")
       end
 
-      it "companyがない場合を登録できず、エラーメッセージが表示されること" do
+      it "companyを登録できず、エラーメッセージが表示されること" do
         user.valid?
         expect(user.errors[:company]).to include("が入力されていません。")
       end
 
-      it "passwordがない場合を登録できず、エラーメッセージが表示されること" do
+      it "passwordを登録できず、エラーメッセージが表示されること" do
         user.valid?
         expect(user.errors[:password]).to include("が入力されていません。")
       end
