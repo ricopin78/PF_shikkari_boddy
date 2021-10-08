@@ -55,6 +55,14 @@ RSpec.describe 'Userモデルのテスト', type: :model do
 
     end
 
+    context 'ふりがなの入力規則が異なる場合' do
+
+      it "last_name_kanaは無効であること" do
+        expect(user[:last_name_kana]).to match(/\A[ぁ-んァ-ヶー－]+\z/)
+      end
+
+    end
+
   end
 
 end
