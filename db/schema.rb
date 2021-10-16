@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_152033) do
+ActiveRecord::Schema.define(version: 2021_10_15_112104) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "event_id", null: false
     t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,7 +85,6 @@ ActiveRecord::Schema.define(version: 2021_08_03_152033) do
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
     t.string "profile_image_id"
-    t.string "company", null: false
     t.string "department"
     t.string "position"
     t.index ["email"], name: "index_users_on_email", unique: true

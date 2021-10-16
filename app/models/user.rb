@@ -17,13 +17,12 @@ class User < ApplicationRecord
     okeys.exists?(event_id: event.id)
   end
 
-  validates :password,     presence: true, length: { minimum: 8 }
+  validates :password,               presence: true, length: { minimum: 8 }
   validates :last_name,              presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
   validates :last_name_kana,         presence: true, format: { with: /\A[ぁ-んァ-ヶー－]+\z/ }
   validates :first_name,             presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
   validates :first_name_kana,        presence: true, format: { with: /\A[ぁ-んァ-ヶー－]+\z/}
   validates :email,                  presence: true, format: { with: /\A\S+@\S+\.\S+\z/ }
-  validates :company,                presence: true
 
   def full_name
     last_name + first_name
@@ -32,4 +31,5 @@ class User < ApplicationRecord
   def full_name_kana
     last_name_kana + first_name_kana
   end
+
 end

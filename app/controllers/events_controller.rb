@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+
   def index
     @events = Event.all
     @event = Event.new
@@ -56,4 +57,5 @@ class EventsController < ApplicationController
   def update_event_params
     params.require(:event).permit(:title, :overview, :start_time, :finish_time, :user_id, relevant_parties_attributes: [:user_id, :attendance, :_destroy, :id])
   end
+
 end

@@ -11,7 +11,6 @@ class HomesController < ApplicationController
       user.last_name_kana = "ゲスト"
       user.first_name_kana = "タロウ"
       user.first_name_kana = "タロウ"
-      user.company = "◯◯株式会社"
     end
     sign_in user
     redirect_to events_path

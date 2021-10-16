@@ -1,6 +1,7 @@
 ja:
   activerecord:
     attributes:
+
       user:
         email: メールアドレス
         encrypted_password: パスワード
@@ -11,19 +12,21 @@ ja:
         last_name_kana: 姓（カナ）
         first_name_kana: 名（カナ）
         profile_image: プロフィール写真
-        company: お勤め先企業名
         remember_me:  次回から自動ログイン
         current_password:  現在のパスワード
         department: 部署
         position: 役職
+
       comment:
         body: 内容
+
       event_todo:
         title: タイトル
         body:  内容
         deadline: 締め切り
         duration:  かかる見込み時間
         completed: 完了ステータス
+
       event:
         start_time: 開始日時
         finish_time: 終了日時
@@ -31,6 +34,7 @@ ja:
         overview: 概要
       relevant_party:
         attendance: 出欠
+
       todo:
         title: タイトル
         body:  内容
@@ -38,3 +42,6 @@ ja:
         duration:  かかる見込み時間
         completed: 完了ステータス
         priority: 優先順位
+
+      company:
+        name: 企業名

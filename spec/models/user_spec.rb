@@ -32,11 +32,6 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         expect(user.errors[:email]).to include("が入力されていません。")
       end
 
-      it "companyを登録できず、エラーメッセージが表示されること" do
-        user.valid?
-        expect(user.errors[:company]).to include("が入力されていません。")
-      end
-
       it "passwordを登録できず、エラーメッセージが表示されること" do
         user.valid?
         expect(user.errors[:password]).to include("が入力されていません。")
