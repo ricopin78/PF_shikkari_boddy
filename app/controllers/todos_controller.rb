@@ -22,6 +22,7 @@ class TodosController < ApplicationController
     if @todo.save
       redirect_to user_todos_path
     else
+      @user = current_user
       @todos0 = Todo.where(user_id: @user.id, priority: "重要×緊急").order("deadline")
       @todos1 = Todo.where(user_id: @user.id, priority: "重要×緊急でない").order("deadline")
       @todos2 = Todo.where(user_id: @user.id, priority: "重要でない×緊急").order("deadline")
