@@ -18,7 +18,7 @@
               <div class="todo-line2">
                 <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
                 <% end %>
-                <span data-comment-id=<%= t.id %> class="todo-edit js-edit-comment-button">
+                <span data-todo-id=<%= t.id %> class="todo-edit js-edit-todo-button">
                   <i class="fas fa-edit text-primary"></i>
                 </span>
               </div>
