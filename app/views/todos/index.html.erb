@@ -14,9 +14,14 @@
           <% @todos0.each do |t| %>
             <div class="todo-card">
               <%= link_to user_todo_path(current_user.id, t.id) do %>
-                <div class="todo-title"><%= t.title %></div>
+              <div class="todo-title"><%= t.title %></div>
+              <div class="todo-line2">
                 <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
-              <% end %>
+                <% end %>
+                <span data-comment-id=<%= t.id %> class="todo-edit js-edit-comment-button">
+                  <i class="fas fa-edit text-primary"></i>
+                </span>
+              </div>
             </div>
           <% end %>
         </div>
