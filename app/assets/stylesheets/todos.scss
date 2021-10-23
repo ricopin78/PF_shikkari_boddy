@@ -104,28 +104,16 @@
     overflow: hidden;
   }
 
-  .todo-line2{
-    display: flex;
-    justify-content: space-between;
-    height: 50%;
-    align-items: center;
 
-    .todo-deadline {
-      width: 70%;
-      color: gray;
-      font-size: small;
-      margin: 0 5px;
-    }
+  .todo-deadline {
+    width: 70%;
+    color: gray;
+    font-size: small;
+    margin: 0 5px;
+  }
 
-    .todo-edit {
-      width: 30%;
-      margin-bottom: 2px;
-    }
-
-    .fa-edit{
-        font-size: 0.8em;
-    }
-
+  .fa-edit{
+      font-size: 0.8em;
   }
 
 }

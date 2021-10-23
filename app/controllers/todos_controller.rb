@@ -1,6 +1,7 @@
 class TodosController < ApplicationController
 
   before_action :set_q
+  before_action :set_todo, only: %i[update destroy]
 
   def index
     @todo = Todo.new
@@ -33,13 +34,9 @@ class TodosController < ApplicationController
   end
 
   def update
-    @todo = current_user.todos.find(params[:id])
-    if @todo.update(todo_params)
-      redirect_to user_todos_path
-    else
-      render :show
-    end
+    @todo.update(todo_params)
   end
+
 
   def destroy
     @todo = current_user.todos.find(params[:id])
@@ -59,6 +56,10 @@ class TodosController < ApplicationController
 
   def set_q
     @q = current_user.todos.ransack(params[:q])
+  end
+
+  def set_todo
+    @todo = current_user.todos.find(params[:id])
   end
 
 end

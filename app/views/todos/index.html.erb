@@ -15,14 +15,24 @@
             <div class="todo-card">
               <%= link_to user_todo_path(current_user.id, t.id) do %>
               <div class="todo-title"><%= t.title %></div>
-              <div class="todo-line2">
-                <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
-                <% end %>
-                <span data-todo-id=<%= t.id %> class="todo-edit js-edit-todo-button">
-                  <i class="fas fa-edit text-primary"></i>
-                </span>
+              <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
+              <% end %>
+              <span todo-id=<%= t.id %>, class="js-edit-todo-button">
+                <i class="fas fa-edit text-primary"></i>
+              </span>
+            </div>
+
+           <!--TODOの編集-->
+            <div id="js-todo-<%= t.id %>">
+              <p id="js-todo-label-<%= t.id %>"><%= t.body %></p>
+              <p id="js-todo-post-error-<%= t.id %>" class="text-danger"></p>
+              <textarea style="display: none;" id="js-textarea-todo-<%= t.id %>" class="form-control todo-post-error"><%= t.body %></textarea>
+              <div id="js-todo-button-<%= t.id %>" style="display: none;">
+                <button data-cancel-id=<%= t.id %> type="button" class="btn btn-light todo-cancel-button">キャンセル</button>
+                <button data-update-id=<%= t.id%> type="submit" class="btn btn-success todo-update-button">更新</button>
               </div>
             </div>
+
           <% end %>
         </div>
 
@@ -87,3 +97,39 @@
     </div>
   </div>
 </div>
+
+<!--TODO編集エリア表示-->
+
+<script>
+$(function () {
+  $(document).on("click", '.js-edit-todo-button', function () {
+    const todoId = $(this).data('todo-id');
+    const todoLabelArea = $('#js-todo-label-' + todoId);
+    const todoTextArea = $('#js-textarea-todo-' + todoId);
+    const todoButton = $('#js-todo-button-' + todoId);
+    const todoError = $('#js-todo-post-error-' + todoId);
+
+    todoLabelArea.hide();
+    todoTextArea.show();
+    todoButton.show();
+    todoError.hide();  });
+});
+
+$(function () {
+  $(document).on("click", ".todo-update-button", function () {
+    const todoId = $(this).data('update-id');
+    const textField = $('#js-textarea-todo-' + todoId);
+    const title = textField.val();
+
+    $.ajax({
+      url: '/todos/' + todoId,
+      type: 'PATCH',
+      data: {
+        todo: {
+          title: title
+        }
+      }
+    })
+  });
+});
+</script>
