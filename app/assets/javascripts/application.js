@@ -23,18 +23,17 @@
 //= require_tree .
 
 $(function () {
-  $(document).on("click", '.js-edit-todo-button', function () {
+  $('.js-edit-todo-button').on("click", '.js-edit-todo-button', function () {
     const todoId = $(this).data('todo-id');
-    const todoLabelArea = $('#js-todo-label-' + todoId);
     const todoTextArea = $('#js-textarea-todo-' + todoId);
     const todoButton = $('#js-todo-button-' + todoId);
     const todoError = $('#js-todo-post-error-' + todoId);
 
-    todoLabelArea.hide();
     todoTextArea.show();
     todoButton.show();
     todoError.hide();  });
 });
+
 
 $(function () {
   $(document).on("click", ".todo-update-button", function () {
