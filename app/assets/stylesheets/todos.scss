@@ -29,7 +29,12 @@
   margin-top: 15px;
 }
 
-.list-next{
+.list-next1{
+ display: inline-block;
+ width: 49%;
+}
+
+.list-next2{
  display: inline-block;
  width: 49%;
 }
@@ -82,12 +87,10 @@
   background-color: #6c757d;
 }
 
-
-
 // タスクアイテム
 .todo-card{
   width: 250px;
-  height: 44px;
+  height: 48px;
   margin: 5px auto;
   padding: 1%;
   border-radius: 6px;
@@ -105,11 +108,19 @@
     white-space: nowrap;
     overflow: hidden;
   }
-  .todo-deadline {
-    width: 100%;
+
+  .todo-line2 {
     display: flex;
+    text-align: center;
+    height: 50%;
+    justify-content: space-between;
+  }
+
+  .todo-deadline {
+    width: 70%;
     color: gray;
     font-size: small;
     margin: 0 5px;
   }
+
 }

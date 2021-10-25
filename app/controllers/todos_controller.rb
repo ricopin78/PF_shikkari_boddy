@@ -32,12 +32,16 @@ class TodosController < ApplicationController
     end
   end
 
+  def edit
+    @todo = Todo.find(params[:id])
+  end
+
   def update
-    @todo = current_user.todos.find(params[:id])
+    @todo = Todo.find(params[:id])
     if @todo.update(todo_params)
       redirect_to user_todos_path
     else
-      render :show
+      render :edit
     end
   end
 
