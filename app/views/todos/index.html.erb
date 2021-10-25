@@ -15,52 +15,81 @@
             <div class="todo-card">
               <%= link_to user_todo_path(current_user.id, t.id) do %>
               <div class="todo-title"><%= t.title %></div>
-              <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
-              <% end %>
-              <span todo-id-data=<%= t.id %>, class="js-edit-todo-button">
-                <i class="fas fa-edit text-primary"></i>
-              </span>
-
-              <!--TODOの編集-->
-              <div id="js-todo-<%= t.id %>">
-                <p id="js-todo-post-error-<%= t.id %>" class="text-danger"></p>
-                <textarea style="display: none;" id="js-textarea-todo-<%= t.id %>" class="form-control todo-post-error"><%= t.title %></textarea>
-                <div id="js-todo-button-<%= t.id %>" style="display: none;">
-                  <button data-cancel-id=<%= t.id %> type="button" class="btn btn-light todo-cancel-button">キャンセル</button>
-                  <button data-update-id=<%= t.id%> type="submit" class="btn btn-success todo-update-button">更新</button>
+              <div class="todo-line2">
+                <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
+                <% end %>
+                <div class="todo-icon">
+                  <%= link_to edit_user_todo_path(current_user.id, t.id) do %>
+                    <i class="fas fa-edit text-info"></i>
+                  <% end %>
+                  <%= link_to user_todo_path(current_user.id, t.id), method: :delete do %>
+                    <i class="far fa-trash-alt text-muted"></i>
+                  <% end %>
                 </div>
               </div>
+
+              <!--TODOの編集-->
+              <!--<div id="js-todo-<%= t.id %>">-->
+              <!--  <p id="js-todo-post-error-<%= t.id %>" class="text-danger"></p>-->
+              <!--  <textarea style="display: none;" id="js-textarea-todo-<%= t.id %>" class="form-control todo-post-error"><%= t.title %></textarea>-->
+              <!--  <div id="js-todo-button-<%= t.id %>" style="display: none;">-->
+              <!--    <button data-cancel-id=<%= t.id %> type="button" class="btn btn-light todo-cancel-button">キャンセル</button>-->
+              <!--    <button data-update-id=<%= t.id%> type="submit" class="btn btn-success todo-update-button">更新</button>-->
+              <!--  </div>-->
+              <!--</div>-->
+
             </div>
           <% end %>
         </div>
 
-        <div class="lists-next" >
+        <div class="lists-next">
           <!--重要×緊急でない-->
-          <div class="list-next">
+          <div class="list-next1">
             <h5 class ="todo-list-label label1 text-center">重要×緊急でない</h5>
+
             <div class ="todo-list list1">
               <% @todos1.each do |t| %>
-                  <div class="todo-card">
-                  <%= link_to user_todo_path(current_user.id, t.id) do %>
-                    <div class="todo-title"><%= t.title %></div>
-                    <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
+              <div class="todo-card">
+                <%= link_to user_todo_path(current_user.id, t.id) do %>
+                <div class="todo-title"><%= t.title %></div>
+                <div class="todo-line2">
+                  <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
                   <% end %>
+                  <div class="todo-icon">
+                    <%= link_to edit_user_todo_path(current_user.id, t.id) do %>
+                      <i class="fas fa-edit text-info"></i>
+                    <% end %>
+                    <%= link_to user_todo_path(current_user.id, t.id), method: :delete do %>
+                      <i class="far fa-trash-alt text-muted"></i>
+                    <% end %>
                   </div>
+                </div>
+              </div>
               <% end %>
             </div>
           </div>
 
           <!--重要でない×緊急-->
-          <div class="list-next">
+          <div class="list-next2">
             <h5 class ="todo-list-label label2 text-center">重要でない×緊急</h5>
             <div class ="todo-list list2">
               <% @todos2.each do |t| %>
-                  <div class="todo-card">
-                  <%= link_to user_todo_path(current_user.id, t.id) do %>
-                    <div class="todo-title"><%= t.title %></div>
-                    <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
+              <div class="todo-card">
+                <%= link_to user_todo_path(current_user.id, t.id) do %>
+                <div class="todo-title"><%= t.title %></div>
+                <div class="todo-line2">
+                  <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
                   <% end %>
+                  <div class="todo-icon">
+                    <%= link_to edit_user_todo_path(current_user.id, t.id) do %>
+                      <i class="fas fa-edit text-info"></i>
+                    <% end %>
+                    <%= link_to user_todo_path(current_user.id, t.id), method: :delete do %>
+                      <i class="far fa-trash-alt text-muted"></i>
+                    <% end %>
                   </div>
+                </div>
+              </div>
               <% end %>
             </div>
           </div>
@@ -71,12 +100,22 @@
         <h5 class ="todo-list-label label3 text-center">重要でない×緊急でない</h5>
         <div class ="todo-list list3">
           <% @todos3.each do |t| %>
-              <div class="todo-card">
-                <%= link_to user_todo_path(current_user.id, t.id) do %>
-                  <div class="todo-title"><%= t.title %></div>
-                  <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
+          <div class="todo-card">
+          <%= link_to user_todo_path(current_user.id, t.id) do %>
+            <div class="todo-title"><%= t.title %></div>
+            <div class="todo-line2">
+              <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
+              <% end %>
+              <div class="todo-icon">
+                <%= link_to edit_user_todo_path(current_user.id, t.id) do %>
+                  <i class="fas fa-edit text-info"></i>
+                <% end %>
+                <%= link_to user_todo_path(current_user.id, t.id), method: :delete do %>
+                  <i class="far fa-trash-alt text-muted"></i>
                 <% end %>
               </div>
+            </div>
+          </div>
           <% end %>
         </div>
 
@@ -84,12 +123,22 @@
         <h5 class ="todo-list-label label3 text-center">完了済みタスク</h5>
         <div class ="todo-list list3">
           <% @todos_completed.each do |t| %>
-              <div class="todo-card">
-                <%= link_to user_todo_path(current_user.id, t.id) do %>
-                  <div class="todo-title"><%= t.title %></div>
-                  <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
+          <div class="todo-card">
+          <%= link_to user_todo_path(current_user.id, t.id) do %>
+            <div class="todo-title"><%= t.title %></div>
+            <div class="todo-line2">
+              <div class="todo-deadline"><%= t.deadline.strftime('%m/%d') %></div>
+              <% end %>
+              <div class="todo-icon">
+                <%= link_to edit_user_todo_path(current_user.id, t.id) do %>
+                  <i class="fas fa-edit text-info"></i>
+                <% end %>
+                <%= link_to user_todo_path(current_user.id, t.id), method: :delete do %>
+                  <i class="far fa-trash-alt text-muted"></i>
                 <% end %>
               </div>
+            </div>
+          </div>
           <% end %>
         </div>
       </div>
@@ -98,36 +147,36 @@
 </div>
 
 <!--TODO編集表示-->
-<script>
-$(function () {
-$(document).on("click", ".js-edit-todo-button", function () {
-    const todoId = $(this).data('todo-id');
-    const todoTextArea = $('#js-textarea-todo-' + todoId);
-    const todoButton = $('#js-todo-button-' + todoId);
-    const todoError = $('#js-todo-post-error-' + todoId);
+<!--<script>-->
+<!--$(function () {-->
+<!--$(document).on("click", ".js-edit-todo-button", function () {-->
+<!--    const todoId = $(this).data('todo-id');-->
+<!--    const todoTextArea = $('#js-textarea-todo-' + todoId);-->
+<!--    const todoButton = $('#js-todo-button-' + todoId);-->
+<!--    const todoError = $('#js-todo-post-error-' + todoId);-->
 
-    todoTextArea.show();
-    todoButton.show();
-    todoError.hide();
-  });
-});
+<!--    todoTextArea.show();-->
+<!--    todoButton.show();-->
+<!--    todoError.hide();-->
+<!--  });-->
+<!--});-->
 
-$(function () {
-  $(document).on("click", ".todo-update-button", function () {
-    const todoId = $(this).data('update-id');
-    const textField = $('#js-textarea-todo-' + todoId);
-    const title = textField.val();
+<!--$(function () {-->
+<!--  $(document).on("click", ".todo-update-button", function () {-->
+<!--    const todoId = $(this).data('update-id');-->
+<!--    const textField = $('#js-textarea-todo-' + todoId);-->
+<!--    const title = textField.val();-->
 
-    $.ajax({
-      url: '/todos/' + todoId,
-      type: 'PATCH',
-      data: {
-        todo: {
-          title: title
-        }
-      }
-    })
-  });
-});
+<!--    $.ajax({-->
+<!--      url: '/todos/' + todoId,-->
+<!--      type: 'PATCH',-->
+<!--      data: {-->
+<!--        todo: {-->
+<!--          title: title-->
+<!--        }-->
+<!--      }-->
+<!--    })-->
+<!--  });-->
+<!--});-->
 
-</script>
+<!--</script>-->

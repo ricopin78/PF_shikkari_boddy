@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <h3 class="text-info mt-3 text-center my-5">TODOの編集</h3>
+  </div>
+
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-9">
+      <%= form_with model: @todo, url: user_todo_path, local: true do |f| %>
+      <%= render 'layouts/notification', model: f.object %>
+
+      <table class="table table-user-information">
+        <tbody>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">タイトル</td>
+            <td><%= f.text_field :title, class:"form-control" %></td>
+          </tr>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">締め切り日時</td>
+            <td><%= f.datetime_select :deadline, use_month_numbers: true, date_separator: ' 月', datetime_separator: ' 日', discard_year: true, minute_step: 10 %></td>
+          </tr>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">優先順位</td>
+            <td><%= f.select :priority, @todo.class.priorities.keys.to_a, {}, {class: "custom-select mb-2 mr-sm-2"} %></td>
+          </tr>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">かかる時間</td>
+            <td class="row justify-content-center"><%= f.text_field :duration, :size=>"6x1", class: "form-control col-sm-8" %><%= f.label "分", class: "text-info col-sm-3"%></td>
+          </tr>
+          <tr>
+            <td class="col-md-4 col-form-label text-info">内容</td>
+            <td><%= f.text_area :body, class: "form-control" %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="form-group row my-4">
+        <div class="col-lg-6 col-md-4">
+          <%= f.hidden_field :completed, :value => true %>
+          <%= f.submit "登録する", class: "btn btn-info btn-md" %>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
